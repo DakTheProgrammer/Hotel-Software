@@ -1,0 +1,27 @@
+#:kivy 1.0.9
+<LoginWidget>:
+    canvas:
+        Color: #changes color of rectangle
+            rgb: 0, 255, 0
+        Rectangle: #essentialy is the background
+            pos: self.pos
+            size: self.size
+
+    Button:
+        id: but
+        text: 'Login'
+        pos: pword.pos[0], pword.pos[1] - (pword.size[1] * 2) #[0] is x and [1] is y this is bc stored as list
+        size: pword.size
+        on_press: print(root.Check()) #runs the method Check()
+
+    TextInput:
+        id: usr
+        text: 'Username'
+        pos: pword.pos[0], pword.pos[1] + (pword.size[1] * 2) #the + portion of the y is used as an offset to space objects
+        size: pword.size
+
+    TextInput:
+        id: pword #used to access other constants like pos
+        text: 'Password' #what is written inside of text box
+        pos: (root.size[0] / 2) - (self.size[0] / 2), ((root.size[1] / 2) - (self.size[1] / 2)) #root is the main screen. This centers the password field
+        size: 200, 30 #200x30 size
