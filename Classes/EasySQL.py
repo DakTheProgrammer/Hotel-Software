@@ -36,7 +36,7 @@ class SQL:
             self.cur.execute("SELECT name FROM sqlite_master WHERE type='table'")
             return self.cur.fetchall()
         except:
-            print('Invalid table')
+            print('No tables')
             raise
 
     def getColumns(self, table):

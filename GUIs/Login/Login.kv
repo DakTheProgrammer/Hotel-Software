@@ -1,5 +1,13 @@
-#:kivy 1.0.9
-<LoginWidget>:
+#:kivy 2.1.0
+#: import NoTransition kivy.uix.screenmanager.NoTransition
+
+WindowManager:
+    LoginPage:
+    RegisterPage:
+
+<LoginPage>:
+    name: 'LogPage'
+
     canvas:
         Color: #changes color of rectangle
             rgb: 0, 255, 0
@@ -7,21 +15,119 @@
             pos: self.pos
             size: self.size
 
-    Button:
-        id: but
-        text: 'Login'
-        pos: pword.pos[0], pword.pos[1] - (pword.size[1] * 2) #[0] is x and [1] is y this is bc stored as list
-        size: pword.size
-        on_press: print(root.Check()) #runs the method Check()
+    Label:
+        id: Error
+        text: 'abc'
+        size_hint: (None, None)
+        pos: Usr.pos[0], Usr.pos[1] + (Usr.size[1] * 2) #0,0 is middle screen
+        size: Pword.size
+        visable: False
+        opacity: 1 if self.visable == True else 0
 
     TextInput:
-        id: usr
+        id: Usr
         text: 'Username'
-        pos: pword.pos[0], pword.pos[1] + (pword.size[1] * 2) #the + portion of the y is used as an offset to space objects
-        size: pword.size
+        pos: Pword.pos[0], Pword.pos[1] + (Pword.size[1] * 2) #the + portion of the y is used as an offset to space objects
+        size_hint: (None, None)
+        size: Pword.size
 
     TextInput:
-        id: pword #used to access other constants like pos
+        id: Pword #used to access other constants like pos
         text: 'Password' #what is written inside of text box
         pos: (root.size[0] / 2) - (self.size[0] / 2), ((root.size[1] / 2) - (self.size[1] / 2)) #root is the main screen. This centers the password field
+        size_hint: (None, None) #used in dynamic scaling
         size: 200, 30 #200x30 size
+
+    Button:
+        id: Log
+        text: 'Login'
+        pos: New.pos[0], New.pos[1] - (New.size[1] * 2) #[0] is x and [1] is y this is bc stored as list
+        size_hint: (None, None)
+        size: Pword.size
+        on_press: print(root.Login()) #runs the method Check()
+
+    Button:
+        id: New
+        text: 'Sign Up'
+        pos: Pword.pos[0], Pword.pos[1] - (Pword.size[1] * 2) #[0] is x and [1] is y this is bc stored as list
+        size_hint: (None, None)
+        size: Pword.size
+        on_press:
+            root.manager.transition = NoTransition() 
+            app.root.current = 'RegPage' #Goes to register page
+
+<RegisterPage>:
+    name: 'RegPage'
+
+    canvas:
+        Color: #changes color of rectangle
+            rgb: 255, 0, 0
+        Rectangle: #essentialy is the background
+            pos: self.pos
+            size: self.size
+
+    Label:
+        id: Error
+        text:'Username already exists'
+        size_hint: (None, None)
+        pos: Fir.pos[0], Fir.pos[1] + (Fir.size[1] * 2) #0,0 is middle screen
+        size: Pword.size
+        visable: False
+        opacity: 1 if self.visable == True else 0
+
+
+    TextInput:
+        id: Fir
+        text: 'First'
+        pos: Las.pos[0], Las.pos[1] + (Las.size[1] * 2) #the + portion of the y is used as an offset to space objects
+        size_hint: (None, None)
+        size: Pword.size
+
+    TextInput:
+        id: Las
+        text: 'Last'
+        pos: Ema.pos[0], Ema.pos[1] + (Ema.size[1] * 2) #the + portion of the y is used as an offset to space objects
+        size_hint: (None, None)
+        size: Pword.size
+
+    TextInput:
+        id: Ema
+        text: 'Email'
+        pos: Usr.pos[0], Usr.pos[1] + (Usr.size[1] * 2) #the + portion of the y is used as an offset to space objects
+        size_hint: (None, None)
+        size: Pword.size
+
+    TextInput:
+        id: Usr
+        text: 'Username'
+        pos: Pword.pos[0], Pword.pos[1] + (Pword.size[1] * 2) #the + portion of the y is used as an offset to space objects
+        size_hint: (None, None)
+        size: Pword.size
+
+    TextInput:
+        id: Pword #used to access other constants like pos
+        text: 'Password' #what is written inside of text box
+        pos: (root.size[0] / 2) - (self.size[0] / 2), ((root.size[1] / 3) - (self.size[1] / 3)) #root is the main screen. This centers the password field
+        size_hint: (None, None) #used in dynamic scaling
+        size: 200, 30 #200x30 size
+
+    Button:
+        id: New
+        text: 'Sign Up'
+        pos: Pword.pos[0], Pword.pos[1] - (Pword.size[1] * 2) #[0] is x and [1] is y this is bc stored as list
+        size_hint: (None, None)
+        size: Pword.size
+        on_press: 
+            if root.SignUp(Usr.text, Pword.text, Fir.text, Las.text, Ema.text): app.root.current = 'LogPage'; root.manager.transition = NoTransition(); root.manager.screens[0].ids.Error.text = 'Account successfully made'; root.manager.screens[0].ids.Error.visable = True
+            else: Error.visable = True
+
+    Button:
+        id: Back
+        text: 'Back'
+        pos: New.pos[0], New.pos[1] - (New.size[1] * 2) #[0] is x and [1] is y this is bc stored as list
+        size_hint: (None, None)
+        size: Pword.size
+        on_press: 
+            app.root.current = 'LogPage'
+            root.manager.transition = NoTransition()
+            
