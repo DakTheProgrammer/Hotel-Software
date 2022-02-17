@@ -1,0 +1,54 @@
+<LoginPage>:
+    name: 'LogPage'
+
+    canvas:
+        Color: #changes color of rectangle
+            rgb: 0, 255, 0
+        Rectangle: #essentialy is the background
+            pos: self.pos
+            size: self.size
+
+    Label:
+        id: Error
+        text: 'abc'
+        size_hint: (None, None)
+        pos: Usr.pos[0], Usr.pos[1] + (Usr.size[1] * 2) #0,0 is middle screen
+        size: Pword.size
+        visable: False
+        opacity: 1 if self.visable == True else 0
+
+    TextInput:
+        id: Usr
+        text: 'Username'
+        pos: Pword.pos[0], Pword.pos[1] + (Pword.size[1] * 2) #the + portion of the y is used as an offset to space objects
+        size_hint: (None, None)
+        size: Pword.size
+
+    TextInput:
+        id: Pword #used to access other constants like pos
+        text: 'Password' #what is written inside of text box
+        pos: (root.size[0] / 2) - (self.size[0] / 2), ((root.size[1] / 2) - (self.size[1] / 2)) #root is the main screen. This centers the password field
+        size_hint: (None, None) #used in dynamic scaling
+        size: 200, 30 #200x30 size
+
+    Button:
+        id: Log
+        text: 'Login'
+        pos: New.pos[0], New.pos[1] - (New.size[1] * 2) #[0] is x and [1] is y this is bc stored as list
+        size_hint: (None, None)
+        size: Pword.size
+        next_page: []
+        on_press: 
+            self.next_page = root.Login(Usr.text, Pword.text)
+            if self.next_page[0] != False : root.manager.transition = NoTransition(); app.root.current = self.next_page[5] + 'Page'; root.manager.screens[self.next_page[6]].ids.Name.username = self.next_page[0]
+            else: Error.visable = True; Error.text = 'Incorect Username or Password'
+
+    Button:
+        id: New
+        text: 'Sign Up'
+        pos: Pword.pos[0], Pword.pos[1] - (Pword.size[1] * 2) #[0] is x and [1] is y this is bc stored as list
+        size_hint: (None, None)
+        size: Pword.size
+        on_press:
+            root.manager.transition = NoTransition() 
+            app.root.current = 'RegPage' #Goes to register page

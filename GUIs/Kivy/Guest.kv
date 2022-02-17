@@ -1,0 +1,14 @@
+<GuestPage>:
+    name: 'GuestPage'
+
+    canvas:
+        Color: #changes color of rectangle
+            rgb: 255, 255, 0
+        Rectangle: #essentialy is the background
+            pos: self.pos
+            size: self.size
+
+    Label:
+        id: Name
+        username: ''
+        text: 'Welcome ' + self.username

@@ -1,5 +1,4 @@
-from GUIs.Login.Login import LoginApp
-from Classes.EasySQL import DB
+from GUIs.Python.Root import RootApp
 
 if __name__ == '__main__':
-    LoginApp().run()
+    RootApp().run()

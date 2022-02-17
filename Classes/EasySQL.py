@@ -2,7 +2,7 @@ import sqlite3
 
 class SQL:
     def __init__(self):
-        self.con = sqlite3.connect('SQLite\Database\Hotel.sqlite')
+        self.con = sqlite3.connect('SQLite\Databases\Hotel.sqlite')
         self.cur = self.con.cursor()
 
     def run(self, query):
