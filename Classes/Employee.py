@@ -24,19 +24,19 @@ class Employee:
     setName(self, name)
         sets the name of employee
     
-    getName(self):
+    getName(self)
         gets the name of an employee
     
-    setWage(self, wage):
+    setWage(self, wage)
         sets the wage of an employee
 
-    getWage(self):
+    getWage(self)
         gets the wage of an employee
 
-    setPosition(self, pos):
+    setPosition(self, pos)
         sets the work postion of an employee
 
-    getPosition(self):
+    getPosition(self)
         gets the work postion of an employee
 
     __repr__(self)

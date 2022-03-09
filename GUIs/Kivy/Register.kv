@@ -1,74 +1,76 @@
 <RegisterPage>:
-    name: 'RegPage'
+    name: 'RegPage'                 #name of the page
 
     canvas:
-        Color: #changes color of rectangle
-            rgb: 255, 0, 0
-        Rectangle: #essentialy is the background
-            pos: self.pos
-            size: self.size
+        Color:
+            rgb: 255, 0, 0          #changes color of rectangle
+        Rectangle:                  #essentialy is the background
+            pos: self.pos           #placed on screen
+            size: self.size         #size of the screen
 
     Label:
-        id: Error
-        text:'Username already exists'
-        size_hint: (None, None)
-        pos: Fir.pos[0], Fir.pos[1] + (Fir.size[1] * 2) #0,0 is middle screen
-        size: Pword.size
-        visable: False
-        opacity: 1 if self.visable == True else 0
+        id: Error#name of label
+        text:'Username already exists'#text of label
+        size_hint: (None, None)#allows resize
+        pos: Fir.pos[0], Fir.pos[1] + (Fir.size[1] * 2)#places above first name box
+        size: Pword.size#same size as password box
+        visable: False#makes invisable
+        opacity: 1 if self.visable == True else 0#makes clear when not supposed to be viasable
 
 
     TextInput:
-        id: Fir
-        text: 'First'
-        pos: Las.pos[0], Las.pos[1] + (Las.size[1] * 2) #the + portion of the y is used as an offset to space objects
-        size_hint: (None, None)
-        size: Pword.size
+        id: Fir                                         #Name of textbox
+        text: 'First'                                   #text in textbox
+        pos: Las.pos[0], Las.pos[1] + (Las.size[1] * 2) #postion relative to last name box
+        size_hint: (None, None)                         #allows resize
+        size: Pword.size                                #same size as password box
 
     TextInput:
-        id: Las
+        id: Las                                         #see above for like comments
         text: 'Last'
-        pos: Ema.pos[0], Ema.pos[1] + (Ema.size[1] * 2) #the + portion of the y is used as an offset to space objects
+        pos: Ema.pos[0], Ema.pos[1] + (Ema.size[1] * 2) 
         size_hint: (None, None)
         size: Pword.size
 
     TextInput:
-        id: Ema
+        id: Ema                                         #see above for like comments
         text: 'Email'
-        pos: Usr.pos[0], Usr.pos[1] + (Usr.size[1] * 2) #the + portion of the y is used as an offset to space objects
+        pos: Usr.pos[0], Usr.pos[1] + (Usr.size[1] * 2) 
         size_hint: (None, None)
         size: Pword.size
 
     TextInput:
-        id: Usr
-        text: 'Username'
-        pos: Pword.pos[0], Pword.pos[1] + (Pword.size[1] * 2) #the + portion of the y is used as an offset to space objects
+        id: Usr                                         #see above for like comments
+        text: 'Username'                                        
+        pos: Pword.pos[0], Pword.pos[1] + (Pword.size[1] * 2)   
         size_hint: (None, None)
         size: Pword.size
 
     TextInput:
-        id: Pword #used to access other constants like pos
-        text: 'Password' #what is written inside of text box
-        pos: (root.size[0] / 2) - (self.size[0] / 2), ((root.size[1] / 3) - (self.size[1] / 3)) #root is the main screen. This centers the password field
-        size_hint: (None, None) #used in dynamic scaling
-        size: 200, 30 #200x30 size
+        id: Pword                                       #see above for like comments
+        text: 'Password' 
+        pos: (root.size[0] / 2) - (self.size[0] / 2), ((root.size[1] / 3) - (self.size[1] / 3)) 
+        size_hint: (None, None) 
+        size: 200, 30                                   #200x30 size
 
     Button:
-        id: New
+        id: New                                         #see above for like comments
         text: 'Sign Up'
-        pos: Pword.pos[0], Pword.pos[1] - (Pword.size[1] * 2) #[0] is x and [1] is y this is bc stored as list
+        pos: Pword.pos[0], Pword.pos[1] - (Pword.size[1] * 2)
         size_hint: (None, None)
         size: Pword.size
-        on_press: 
+        on_press:
+            #calls the method that proccesses sign up and proccesses it
             if root.SignUp(Usr.text, Pword.text, Fir.text, Las.text, Ema.text): app.root.current = 'LogPage'; root.manager.transition = NoTransition(); root.manager.screens[0].ids.Error.text = 'Account successfully made'; root.manager.screens[0].ids.Error.visable = True
+            #error pops up if fails to sign up
             else: Error.visable = True
 
     Button:
-        id: Back
+        id: Back                                        #see above for like comments
         text: 'Back'
-        pos: New.pos[0], New.pos[1] - (New.size[1] * 2) #[0] is x and [1] is y this is bc stored as list
+        pos: New.pos[0], New.pos[1] - (New.size[1] * 2)
         size_hint: (None, None)
         size: Pword.size
-        on_press: 
-            app.root.current = 'LogPage'
+        on_press:
+            app.root.current = 'LogPage'                #goes back to login page
             root.manager.transition = NoTransition()

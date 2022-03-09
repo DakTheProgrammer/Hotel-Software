@@ -1,54 +1,54 @@
 <LoginPage>:
-    name: 'LogPage'
+    name: 'LogPage'                 
 
     canvas:
-        Color: #changes color of rectangle
-            rgb: 0, 255, 0
-        Rectangle: #essentialy is the background
-            pos: self.pos
-            size: self.size
+        Color: 
+            rgb: 0, 255, 0          
 
     Label:
-        id: Error
-        text: 'abc'
-        size_hint: (None, None)
-        pos: Usr.pos[0], Usr.pos[1] + (Usr.size[1] * 2) #0,0 is middle screen
-        size: Pword.size
-        visable: False
-        opacity: 1 if self.visable == True else 0
+        id: Error                                       #name of label
+        text: 'abc'                                     #text of label
+        size_hint: (None, None)                         #allows resize
+        pos: Usr.pos[0], Usr.pos[1] + (Usr.size[1] * 2) #places above username box NOTE: 0,0 is middle screen
+        size: Pword.size                                #same size as password box
+        visable: False                                  #makes invisable
+        opacity: 1 if self.visable == True else 0       #makes clear when not supposed to be viasable
 
     TextInput:
-        id: Usr
-        text: 'Username'
-        pos: Pword.pos[0], Pword.pos[1] + (Pword.size[1] * 2) #the + portion of the y is used as an offset to space objects
-        size_hint: (None, None)
-        size: Pword.size
+        id: Usr                                                 #Name of textbox
+        text: 'Username'                                        #text in textbox
+        pos: Pword.pos[0], Pword.pos[1] + (Pword.size[1] * 2)   #postion relative ot password box NOTE: the + portion of the y is used as an offset to space objects
+        size_hint: (None, None)                                 #allows resize
+        size: Pword.size                                        #same size as password box
 
     TextInput:
-        id: Pword #used to access other constants like pos
-        text: 'Password' #what is written inside of text box
-        pos: (root.size[0] / 2) - (self.size[0] / 2), ((root.size[1] / 2) - (self.size[1] / 2)) #root is the main screen. This centers the password field
-        size_hint: (None, None) #used in dynamic scaling
-        size: 200, 30 #200x30 size
+        id: Pword                                                                               #name of text box
+        text: 'Password'                                                                        #text in textbox
+        pos: (root.size[0] / 2) - (self.size[0] / 2), ((root.size[1] / 2) - (self.size[1] / 2)) #root is the main screen. This centers the password field.
+        size_hint: (None, None)                                                                 #used in dynamic scaling
+        size: 200, 30                                                                           #200x30 size
 
     Button:
-        id: Log
-        text: 'Login'
-        pos: New.pos[0], New.pos[1] - (New.size[1] * 2) #[0] is x and [1] is y this is bc stored as list
-        size_hint: (None, None)
-        size: Pword.size
-        next_page: []
+        id: Log                                         #name of button
+        text: 'Login'                                   #text in button
+        pos: New.pos[0], New.pos[1] - (New.size[1] * 2) #Position relative to sign up NOTE: [0] is x and [1] is y this is bc stored as list
+        size_hint: (None, None)                         #allows resize 
+        size: Pword.size                                #same size as passord box
+        next_page: []                                   #container that if and what page to go to next
         on_press: 
+            #calls parrent function to proccess the sign in
             self.next_page = root.Login(Usr.text, Pword.text)
+            #what happens if it works
             if self.next_page[0] != False : root.manager.transition = NoTransition(); app.root.current = self.next_page[5] + 'Page'; root.manager.screens[self.next_page[6]].ids.Name.username = self.next_page[0]
+            #what happens if it fails
             else: Error.visable = True; Error.text = 'Incorect Username or Password'
 
     Button:
-        id: New
-        text: 'Sign Up'
-        pos: Pword.pos[0], Pword.pos[1] - (Pword.size[1] * 2) #[0] is x and [1] is y this is bc stored as list
-        size_hint: (None, None)
-        size: Pword.size
+        id: New                                                 #name of button
+        text: 'Sign Up'                                         #text inside button
+        pos: Pword.pos[0], Pword.pos[1] - (Pword.size[1] * 2)   #places it bellow pasword
+        size_hint: (None, None)                                 #allows resize
+        size: Pword.size                                        #same size as password box
         on_press:
-            root.manager.transition = NoTransition() 
-            app.root.current = 'RegPage' #Goes to register page
+            root.manager.transition = NoTransition()            #turns of any trasitions
+            app.root.current = 'RegPage'                        #Goes to register page
