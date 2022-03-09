@@ -4,7 +4,8 @@ from Classes.EasySQL import DB
 
 class LoginPage(Screen):
     def Login(self, usr, pas):
-        res = DB.run(f"SELECT * FROM Users WHERE Username = '{usr}' AND Password = '{pas}'")
+        res = DB.run(f"""SELECT * FROM Users
+         WHERE Username = '{usr}' AND Password = '{pas}'""")
 
         if res != []:
             res = list(res[0])
