@@ -160,7 +160,8 @@ class Employee:
 
         return res
 
-#used for testing by runing only this script
+#               used for testing by runing only this script
+#------------------------------------------------------------------------------
 # if __name__ == '__main__':
 #     bob = Employee('Bob', 12.50, 'Chef')
 
@@ -174,3 +175,4 @@ class Employee:
 
 #     print(christa.getName(), christa.getWage(), christa.getPosition())
 #     print(bob2)
+#------------------------------------------------------------------------------
