@@ -48,7 +48,7 @@ class Employee:
     __position = None
 
     def __init__(
-        self, name = None, wage = None, position = None, employee = None):
+        self, name = None, wage = 0.0, position = None, employee = None):
         
         """
         default, parametrized, and copy constructor.\n 
@@ -68,20 +68,20 @@ class Employee:
             The employee that you want to copy
         """
 
-        if name != None:
-            self.__name = name
-        else:
-            self.__name = ''
-            
-        if wage != None:
-            self.__wage = wage
-        else:
-            self.__wage = 0.0
+        if not isinstance(name, str):
+            raise TypeError('"name" must be of type string')
 
-        if position != None:
-            self.__position = position
-        else:
-            self.__position = ''
+        if not isinstance(position, str):
+            raise TypeError('"position" must be of type string')
+
+        self.__name = name
+            
+        try:
+            self.__wage = float(wage)
+        except:
+            raise TypeError('"wage" must be a number')  
+
+        self.__position = position
 
         if employee != None:
             self.__name = employee.getName()
@@ -98,7 +98,10 @@ class Employee:
             The name of the employee
         """
 
-        self.__name = name
+        if not isinstance(name, str):
+            raise TypeError('"name" must be of type string')
+        else:
+            self.__name = name
     
     def getName(self):
         """
@@ -116,8 +119,10 @@ class Employee:
         wage : float, optional
             The wage of the employee
         """
-
-        self.__wage = wage
+        try:
+            self.__wage = float(wage)
+        except:
+            raise TypeError('"wage" must be a number')        
 
     def getWage(self):
         """
@@ -135,6 +140,8 @@ class Employee:
         name : str, optional
             The work position of the employee
         """
+        if not isinstance(pos, str):
+            raise TypeError('"position" must be of type string')
 
         self.__position = pos
 
