@@ -48,7 +48,7 @@ class Employee:
     __position = None
 
     def __init__(
-        self, name = None, wage = 0.0, position = None, employee = None):
+        self, name = '', wage = 0.0, position = '', employee = None):
         
         """
         default, parametrized, and copy constructor.\n 
