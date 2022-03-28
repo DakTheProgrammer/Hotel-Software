@@ -7,3 +7,12 @@
         Rectangle:                          #essentialy is the background
             pos: self.pos                   #placed on screen
             size: self.size                 #size of screen
+
+    Button:
+        id: Staff                                                                               #name of button
+        text: 'Staff'                                                                           #text in button
+        pos: (root.size[0] / 2) - (self.size[0] / 2), ((root.size[1] / 2) - (self.size[1] / 2)) #middle of screen
+        size_hint: (None, None)                                                                 #allows resize 
+        size: 200, 30                                                                           #same size as passord box
+        on_press: 
+            app.root.current = 'ManagerInterfacePage'                                           #Goes to Interface page

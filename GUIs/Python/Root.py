@@ -1,4 +1,4 @@
-from kivy.app import App
+from kivymd.app import MDApp as App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 
@@ -10,6 +10,7 @@ from GUIs.Python.Attendant import AttendantPage
 from GUIs.Python.Bellhop import BellhopPage
 from GUIs.Python.Manager import ManagerPage
 from GUIs.Python.RoomService import ServicePage
+from GUIs.Python.ManagerInterface import ManagerInterfacePage
 
 class WindowManager(ScreenManager):
     """
