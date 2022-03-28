@@ -42,7 +42,7 @@
             #calls parrent function to proccess the sign in
             self.next_page = root.Login(Usr.text, Pword.text)
             #what happens if it works
-            if self.next_page[0] != False : root.manager.transition = NoTransition(); app.root.current = self.next_page[5] + 'Page'; root.manager.screens[self.next_page[6]].ids.Name.username = self.next_page[0]
+            if self.next_page[0] != False : root.manager.transition = NoTransition(); app.root.current = self.next_page[5] + 'Page'; root.manager.screens[self.next_page[6]].ids.Name.username = self.next_page[0];print(self.next_page)
             #what happens if it fails
             else: Error.visable = True; Error.text = 'Incorect Username or Password'
 

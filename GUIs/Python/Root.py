@@ -6,6 +6,10 @@ from kivy.uix.screenmanager import ScreenManager
 from GUIs.Python.Login import LoginPage
 from GUIs.Python.Register import RegisterPage
 from GUIs.Python.Guest import GuestPage
+from GUIs.Python.Attendant import AttendantPage
+from GUIs.Python.Bellhop import BellhopPage
+from GUIs.Python.Manager import ManagerPage
+from GUIs.Python.RoomService import ServicePage
 
 class WindowManager(ScreenManager):
     """
