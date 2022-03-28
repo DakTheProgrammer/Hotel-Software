@@ -37,12 +37,12 @@
         pos: New.pos[0], New.pos[1] - (New.size[1] * 2) #Position relative to sign up NOTE: [0] is x and [1] is y this is bc stored as list
         size_hint: (None, None)                         #allows resize 
         size: Pword.size                                #same size as passord box
-        next_page: []                                   #container that if and what page to go to next
+        next_page: False                                   #container that if and what page to go to next
         on_press: 
             #calls parrent function to proccess the sign in
             self.next_page = root.Login(Usr.text, Pword.text)
             #what happens if it works
-            if self.next_page[0] != False : root.manager.transition = NoTransition(); app.root.current = self.next_page[5] + 'Page'; root.manager.screens[self.next_page[6]].ids.Name.username = self.next_page[0];print(self.next_page)
+            if self.next_page != False : root.manager.transition = NoTransition(); app.root.current = app.root.screens[self.next_page].name ; # syntax to pass things-> root.manager.screens[self.next_page[6]].ids.Name.username = self.next_page[0];
             #what happens if it fails
             else: Error.visable = True; Error.text = 'Incorect Username or Password'
 

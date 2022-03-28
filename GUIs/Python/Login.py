@@ -31,14 +31,14 @@ class LoginPage(Screen):
          WHERE Username = '{usr}' AND Password = '{pas}'""")
 
         if res != []:
-            #formating response
+            #makes result mutable
             res = list(res[0])
 
             #if a guest go to guest page
             if res[5] == 'Guest':
-                res.append(2)
+                page = 2
+            #else if a manager go to manager page
+            elif res[5] == 'Manager':
+                page = 5
             
-            return list(res)
-        else:
-            #returns false if user not in DB
-            return [False]
+            return page
