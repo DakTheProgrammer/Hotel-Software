@@ -1,0 +1,78 @@
+<ManagerSignUpPage>:
+    name: 'ManagerSignUpPage'                           #name of the page
+
+    canvas:
+        Color:
+            rgb: 255, 0, 0                              #changes color of rectangle
+        Rectangle:                                      #essentialy is the background
+            pos: self.pos                               #placed on screen
+            size: self.size                             #size of the screen
+
+    Label:
+        id: mess
+        text: 'Username already exists or invalid job'
+        size_hint: (.3, .05)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.95}
+        visable: False
+        opacity: 1 if self.visable == True else 0
+
+    TextInput:
+        id: Fir                                         #Name of textbox
+        text: 'First'                                   #text in textbox
+        size_hint: (.3, .05)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.85}
+
+    TextInput:
+        id: Las                                         #see above for like comments
+        text: 'Last' 
+        size_hint: Fir.size_hint
+        pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+
+    TextInput:
+        id: Ema                                         #see above for like comments
+        text: 'Email'
+        size_hint: Fir.size_hint
+        pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+
+    TextInput:
+        id: Usr                                         #see above for like comments
+        text: 'Username'                                           
+        size_hint: Fir.size_hint
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+
+    TextInput:
+        id: Pword                                       #see above for like comments
+        text: 'Password' 
+        size_hint: Fir.size_hint 
+        pos_hint: {'center_x': 0.5, 'center_y': 0.45}
+
+    Spinner:
+        id: spin
+        text: 'Job'
+        values: ['Attendant','Bellhop', 'Manager', 'Room Service']
+        size_hint: Fir.size_hint
+        pos_hint: {'center_x': 0.5, 'center_y': 0.35}
+        sync_height: True
+        background_color: 0,0,0
+        option_cls: Factory.CustomSpinnerOptions
+
+    Button:
+        id: New                                         #see above for like comments
+        text: 'Create'
+        size_hint: Fir.size_hint
+        pos_hint: {'center_x': 0.5, 'center_y': 0.25}
+        on_press:
+            if root.Submit(Fir.text, Las.text, Ema.text, Usr.text, Pword.text, spin.text): app.root.current = 'ManagerInterfacePage'; root.manager.transition = NoTransition()
+            else: mess.visable = True
+    Button:
+        id: Back                                        #see above for like comments
+        text: 'Back'
+        size_hint: Fir.size_hint
+        pos_hint: {'center_x': 0.5, 'center_y': 0.15}
+        on_press:
+            app.root.current = 'ManagerInterfacePage'   #goes back to Manager page
+            root.manager.transition = NoTransition()
+
+<CustomSpinnerOptions@SpinnerOption>:
+    #background_normal: '' #This removes the spacing
+    background_color: 0,0,0

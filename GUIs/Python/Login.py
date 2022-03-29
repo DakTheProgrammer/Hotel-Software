@@ -34,11 +34,24 @@ class LoginPage(Screen):
             #makes result mutable
             res = list(res[0])
 
-            #if a guest go to guest page
+            #if a guest go to guest page(pages indexed by numbers)
             if res[5] == 'Guest':
                 page = 2
-            #else if a manager go to manager page
             elif res[5] == 'Manager':
                 page = 5
+            elif res[5] == 'Attendant':
+                page = 3
+            elif res[5] == 'Bellhop':
+                page = 4
+            elif res[5] == 'Room Service':
+                page = 6
             
             return page
+        else:
+            return False
+
+    def on_leave(self):
+        self.ids.Usr.text = 'Username'
+        self.ids.Pword.text = 'Password'
+        self.ids.Error.visable = False
+        

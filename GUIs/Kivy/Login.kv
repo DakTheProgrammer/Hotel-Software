@@ -40,7 +40,7 @@
         next_page: False                                   #container that if and what page to go to next
         on_press: 
             #calls parrent function to proccess the sign in
-            self.next_page = root.Login(Usr.text, Pword.text)
+            self.next_page = root.Login(str(Usr.text), str(Pword.text))
             #what happens if it works
             if self.next_page != False : root.manager.transition = NoTransition(); app.root.current = app.root.screens[self.next_page].name ; # syntax to pass things-> root.manager.screens[self.next_page[6]].ids.Name.username = self.next_page[0];
             #what happens if it fails
@@ -54,4 +54,4 @@
         size: Pword.size                                        #same size as password box
         on_press:
             root.manager.transition = NoTransition()            #turns of any trasitions
-            app.root.current = 'ManagerInterfacePage'                        #Goes to register page
+            app.root.current = 'RegPage'                        #Goes to register page

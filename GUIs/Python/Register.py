@@ -38,5 +38,12 @@ class RegisterPage(Screen):
             return True
         except:
             #returns false if user already exists
-            print('already exists')
             return False
+
+    def on_leave(self):
+        self.ids.Fir.text = 'First'
+        self.ids.Las.text = 'Last'
+        self.ids.Ema.text = 'Email'
+        self.ids.Usr.text = 'Username'
+        self.ids.Pword.text = 'Password'
+        self.ids.Error.visable = 'False'

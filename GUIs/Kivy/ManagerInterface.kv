@@ -11,17 +11,15 @@
     Button:
         id: Add                                                                                 #name of button
         text: 'Add Employee'                                                                           #text in button
-        pos: Remove.pos[0] + 400, Remove.pos[1] #middle of screen
         pos_hint: {'center_x': 0.75, 'center_y': 0.15}
 		size_hint: (.4, .05)                                                                 #allows resize 
         on_press: 
-            app.root.current = 'ManagerInterfacePage'                                           #Goes to Interface page
+            app.root.current = 'ManagerSignUpPage'                                           #Goes to Interface page
     
     Button:
         id: Remove                                                                              #name of button
         text: 'Remove Employee'                                                                           #text in button
-        pos: 100,80 #table.pos[0], table.pos[1] #middle of screen
         size_hint: (.4, .05)                                                                 #allows resize
         pos_hint: {'center_x': 0.25, 'center_y': 0.15} 
         on_press: 
-            app.root.current = 'ManagerInterfacePage'                                           #Goes to Interface page
+            #call some function

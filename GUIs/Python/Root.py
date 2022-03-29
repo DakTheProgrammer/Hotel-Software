@@ -11,6 +11,7 @@ from GUIs.Python.Bellhop import BellhopPage
 from GUIs.Python.Manager import ManagerPage
 from GUIs.Python.RoomService import ServicePage
 from GUIs.Python.ManagerInterface import ManagerInterfacePage
+from GUIs.Python.ManagerSignUp import ManagerSignUpPage
 
 class WindowManager(ScreenManager):
     """

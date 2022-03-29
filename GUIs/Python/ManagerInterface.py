@@ -1,7 +1,6 @@
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.datatables import MDDataTable
 from kivy.metrics import dp
-from kivy.uix.button import Button
 
 from Classes.EasySQL import DB
 
@@ -22,5 +21,3 @@ class ManagerInterfacePage(Screen):
         )
 
         self.add_widget(table)
-
-        print(table.pos)
