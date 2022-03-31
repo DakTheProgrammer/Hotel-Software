@@ -11,16 +11,18 @@ class ManagerInterfacePage(Screen):
         #needed for a bug fix with kivy
         if self.table == None:
             self.table = MDDataTable(
-                pos_hint = {'center_x': 0.5, 'center_y': 0.5},
-                size_hint =(0.9, 0.6),
+                pos_hint = {'center_x': 0.5, 'center_y': 0.575},
+                size_hint =(0.9, 0.75),
                 check = True,
                 column_data = [
-                    ("First Name", dp(30)),
-                    ("Last Name", dp(30))
+                    ("First Name", dp(40)),
+                    ("Last Name", dp(30)),
+                    ('Role', dp(20)),
+                    ('Status', dp(15)),
+                    ('Clock In/Out', dp(30))
                 ],
                 row_data = [
-                    ('Dakota', 'Wilson'),
-                    ('John', 'Doe')
+                    ('Dakota', 'Wilson', 'Manager', 'On', '8am')
                 ]
             )
 
