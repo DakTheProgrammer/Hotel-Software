@@ -11,8 +11,37 @@
     Button:
         id: Staff                                                                               #name of button
         text: 'Staff'                                                                           #text in button
-        pos: (root.size[0] / 2) - (self.size[0] / 2), ((root.size[1] / 2) - (self.size[1] / 2)) #middle of screen
-        size_hint: (None, None)                                                                 #allows resize 
-        size: 200, 30                                                                           #same size as passord box
+        pos_hint: {'center_x': .25, 'center_y': .725}
+        size_hint: (.4, .3)                                                                     #allows resize
         on_press: 
             app.root.current = 'ManagerInterfacePage'                                           #Goes to Interface page
+
+    Button:
+        id: Rooms                                                                               #name of button
+        text: 'Rooms'                                                                           #text in button
+        pos_hint: {'center_x': .25, 'center_y': .3}
+        size_hint: Staff.size_hint                                                                     #allows resize
+        on_press: 
+            #go to rooms page
+
+    Button:
+        id: Revenue                                                                               #name of button
+        text: 'Revenue'                                                                           #text in button
+        pos_hint: {'center_x': .75, 'center_y': .3}
+        size_hint: Staff.size_hint                                                                #allows resize
+        on_press: 
+            #go to rev page
+
+    Label:
+        id: clock
+        text:''                                                            
+        pos_hint: {'center_x': .8, 'center_y': .75}
+        size_hint: Staff.size_hint
+        font_size: 50
+
+    Label:
+        id: date
+        text: ''                                                              
+        pos_hint: {'center_x': .755, 'center_y': .675}
+        size_hint: Staff.size_hint
+        font_size: 25
