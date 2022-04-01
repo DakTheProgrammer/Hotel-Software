@@ -2,6 +2,7 @@ from kivymd.app import MDApp as App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 
+
 #Have to be here so that Kivy can see all classes
 from GUIs.Python.Login import LoginPage
 from GUIs.Python.Register import RegisterPage
@@ -12,6 +13,8 @@ from GUIs.Python.Manager import ManagerPage
 from GUIs.Python.RoomService import ServicePage
 from GUIs.Python.ManagerInterface import ManagerInterfacePage
 from GUIs.Python.ManagerSignUp import ManagerSignUpPage
+from GUIs.Python.ManagerRoom import ManagerRoomPage
+from GUIs.Python.ManagerRevenue import ManagerRevenuePage
 
 class WindowManager(ScreenManager):
     """
@@ -39,4 +42,5 @@ class RootApp(App):
         builds the app based on the Kivy file
     """
     def build(self):
+        self.icon = 'images/icon.png'
         return Builder.load_file('GUIs\Kivy\Root.kv')
