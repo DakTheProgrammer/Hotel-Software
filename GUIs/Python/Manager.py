@@ -1,4 +1,3 @@
-from turtle import update
 from kivy.uix.screenmanager import Screen
 from kivy.clock import Clock
 from datetime import date, datetime

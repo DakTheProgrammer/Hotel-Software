@@ -13,6 +13,8 @@ from GUIs.Python.Manager import ManagerPage
 from GUIs.Python.RoomService import ServicePage
 from GUIs.Python.ManagerInterface import ManagerInterfacePage
 from GUIs.Python.ManagerSignUp import ManagerSignUpPage
+from GUIs.Python.ManagerRoom import ManagerRoomPage
+from GUIs.Python.ManagerRevenue import ManagerRevenuePage
 
 class WindowManager(ScreenManager):
     """
