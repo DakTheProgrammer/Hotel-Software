@@ -34,13 +34,21 @@
     Label:
         id: clock
         text:''                                                            
-        pos_hint: {'center_x': .8, 'center_y': .75}
+        pos_hint: {'center_x': .75, 'center_y': .75}
         size_hint: Staff.size_hint
         font_size: 50
 
     Label:
         id: date
         text: ''                                                              
-        pos_hint: {'center_x': .755, 'center_y': .675}
+        pos_hint: {'center_x': .75, 'center_y': .675}
         size_hint: Staff.size_hint
         font_size: 25
+
+    Button:
+        id: SignOut
+        text: 'Sign Out'
+        pos_hint: {'center_x': .949, 'center_y': .029}
+        size_hint: (.1, .05)
+        on_press: 
+            app.root.current = 'LogPage'
