@@ -21,7 +21,7 @@
         pos_hint: {'center_x': .25, 'center_y': .3}
         size_hint: Staff.size_hint                                                                     #allows resize
         on_press: 
-            #go to rooms page
+            app.root.current = 'ManagerRoomPage'
 
     Button:
         id: Revenue                                                                               #name of button
@@ -29,7 +29,7 @@
         pos_hint: {'center_x': .75, 'center_y': .3}
         size_hint: Staff.size_hint                                                                #allows resize
         on_press: 
-            #go to rev page
+            app.root.current = 'ManagerRevenuePage'
 
     Label:
         id: clock
