@@ -1,15 +1,18 @@
 from kivy.uix.screenmanager import Screen
+from kivy.clock import Clock
+from datetime import date, datetime
+
 
 from Classes.EasySQL import DB
 
 class GuestPage(Screen):
-    """
-    The page that displays the guest information
+    def on_pre_enter(self):
+        self.ids.clock.text = datetime.today().strftime("%I:%M %p")
+        self.ids.date.text = date.today().strftime("%a., %b %d %Y")
+        self.ids.room.text = ' Room: Not Checked In'  #Temporary replace with room given to guest
+        Clock.schedule_interval(self.updates, 0.5)
 
-    Attributes
-    ----------
-
-    Methods
-    -------
-    """
-    pass
+    def updates(self, args):
+        self.ids.clock.text = datetime.today().strftime("%I:%M %p")
+        self.ids.date.text = date.today().strftime("%a., %b %d %Y")
+        
