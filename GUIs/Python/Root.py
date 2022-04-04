@@ -21,6 +21,9 @@ from GUIs.Python.ManagerInterface import ManagerInterfacePage
 from GUIs.Python.ManagerSignUp import ManagerSignUpPage
 from GUIs.Python.ManagerRoom import ManagerRoomPage
 from GUIs.Python.ManagerRevenue import ManagerRevenuePage
+from GUIs.Python.EditServices import EditServicesPage
+from GUIs.Python.Inventory import InventoryPage
+from GUIs.Python.Orders import OrdersPage
 
 class WindowManager(ScreenManager):
     """
