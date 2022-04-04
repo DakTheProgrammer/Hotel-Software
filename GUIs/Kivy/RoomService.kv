@@ -6,3 +6,49 @@
             pos: self.pos                   #placed on screen
             size: self.size                 #size of screen
             source: 'images/roomservicebg.jpg'
+    
+    Button:
+        id: Orders                                                                               #name of button
+        text: 'Orders'                                                                           #text in button
+        pos_hint: {'center_x': .25, 'center_y': .725}
+        size_hint: (.4, .3)                                                                     #allows resize
+        on_press: 
+            #app.root.current = 'ManagerInterfacePage'                                           #Goes to Interface page
+
+    Button:
+        id: Inventory                                                                               #name of button
+        text: 'Inventory'                                                                           #text in button
+        pos_hint: {'center_x': .25, 'center_y': .3}
+        size_hint: Orders.size_hint                                                                     #allows resize
+        on_press: 
+            #app.root.current = 'ManagerRoomPage'
+
+    Button:
+        id: Edit                                                                               #name of button
+        text: 'Edit Sevices'                                                                           #text in button
+        pos_hint: {'center_x': .75, 'center_y': .3}
+        size_hint: Orders.size_hint                                                                #allows resize
+        on_press: 
+            #app.root.current = 'ManagerRevenuePage'
+
+    Label:
+        id: clock
+        text:''                                                            
+        pos_hint: {'center_x': .75, 'center_y': .75}
+        size_hint: Orders.size_hint
+        font_size: 50
+
+    Label:
+        id: date
+        text: ''                                                              
+        pos_hint: {'center_x': .75, 'center_y': .675}
+        size_hint: Orders.size_hint
+        font_size: 25
+
+    Button:
+        id: SignOut
+        text: 'Sign Out'
+        pos_hint: {'center_x': .949, 'center_y': .029}
+        size_hint: (.1, .05)
+        on_press: 
+            app.root.current = 'LogPage'
