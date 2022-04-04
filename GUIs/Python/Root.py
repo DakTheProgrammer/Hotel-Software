@@ -1,3 +1,9 @@
+from kivy.config import Config
+
+#prevents user from being able to resize the application must be placed
+#above all other kivy imports
+Config.set('graphics', 'resizable', False)
+
 from kivymd.app import MDApp as App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
@@ -15,6 +21,9 @@ from GUIs.Python.ManagerInterface import ManagerInterfacePage
 from GUIs.Python.ManagerSignUp import ManagerSignUpPage
 from GUIs.Python.ManagerRoom import ManagerRoomPage
 from GUIs.Python.ManagerRevenue import ManagerRevenuePage
+from GUIs.Python.EditServices import EditServicesPage
+from GUIs.Python.Inventory import InventoryPage
+from GUIs.Python.Orders import OrdersPage
 
 class WindowManager(ScreenManager):
     """
