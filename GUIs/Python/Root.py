@@ -1,3 +1,9 @@
+from kivy.config import Config
+
+#prevents user from being able to resize the application must be placed
+#above all other kivy imports
+Config.set('graphics', 'resizable', False)
+
 from kivymd.app import MDApp as App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
