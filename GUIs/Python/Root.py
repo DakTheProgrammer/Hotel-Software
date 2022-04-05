@@ -24,6 +24,9 @@ from GUIs.Python.ManagerRevenue import ManagerRevenuePage
 from GUIs.Python.EditServices import EditServicesPage
 from GUIs.Python.Inventory import InventoryPage
 from GUIs.Python.Orders import OrdersPage
+from GUIs.Python.BellGuest import BellGuestPage
+from GUIs.Python.BellImportant import BellImportantPage
+from GUIs.Python.BellLugage import BellLugagePage
 
 class WindowManager(ScreenManager):
     """
