@@ -6,3 +6,49 @@
             pos: self.pos                   #placed on screen
             size: self.size                 #size of screen
             source: 'images/bellhopbg.jpg'
+
+    Button:
+        id: Guests                                                                               
+        text: 'Guests'                                                                           
+        pos_hint: {'center_x': .25, 'center_y': .725}
+        size_hint: (.4, .3)                                                                     
+        on_press: 
+            app.root.current = 'BellGuestPage'
+
+    Button:
+        id: Lugagae                                                                               
+        text: 'Lugagae'                                                                           
+        pos_hint: {'center_x': .25, 'center_y': .3}
+        size_hint: Guests.size_hint                                                                     
+        on_press: 
+            app.root.current = 'BellLugagePage'
+
+    Button:
+        id: Important                                                                               
+        text: 'Important People'                                                                    
+        pos_hint: {'center_x': .75, 'center_y': .3}
+        size_hint: Guests.size_hint                                                                 
+        on_press: 
+            app.root.current = 'BellImportantPage'
+
+    Label:
+        id: clock
+        text:''                                                            
+        pos_hint: {'center_x': .75, 'center_y': .75}
+        size_hint: Guests.size_hint
+        font_size: 50
+
+    Label:
+        id: date
+        text: ''                                                              
+        pos_hint: {'center_x': .75, 'center_y': .675}
+        size_hint: Guests.size_hint
+        font_size: 25
+
+    Button:
+        id: SignOut
+        text: 'Sign Out'
+        pos_hint: {'center_x': .949, 'center_y': .029}
+        size_hint: (.1, .05)
+        on_press: 
+            app.root.current = 'LogPage'

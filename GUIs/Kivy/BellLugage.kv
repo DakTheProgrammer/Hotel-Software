@@ -6,3 +6,27 @@
             pos: self.pos                   #placed on screen
             size: self.size                 #size of screen
             #source: 'images/bellhopbg.jpg'
+
+    Button:
+        id: Back                                                                              #name of button
+        text: 'Back'                                                                           #text in button
+        size_hint: (.4, .05)                                                                  #allows resize
+        pos_hint: {'center_x': 0.5, 'center_y': 0.0775} 
+        on_press: 
+            app.root.current = 'BellhopPage'
+
+    Button:
+        id: Take                                                                                 #name of button
+        text: 'Take'                                                                           #text in button
+        pos_hint: {'center_x': 0.75, 'center_y': 0.15}
+		size_hint: (.4, .05)                                                                 #allows resize 
+        on_press: 
+            #call some function                                           #Goes to Interface page
+    
+    Button:
+        id: Complete                                                                              #name of button
+        text: 'Complete'                                                                           #text in button
+        size_hint: (.4, .05)                                                                 #allows resize
+        pos_hint: {'center_x': 0.25, 'center_y': 0.15} 
+        on_press: 
+            #call some function
