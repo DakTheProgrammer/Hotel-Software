@@ -13,7 +13,7 @@
         pos_hint: {'center_x': .25, 'center_y': .725}
         size_hint: (.4, .3)                                                                     
         on_press: 
-            #go somewhere
+            app.root.current = 'BellGuestPage'
 
     Button:
         id: Lugagae                                                                               
@@ -21,7 +21,7 @@
         pos_hint: {'center_x': .25, 'center_y': .3}
         size_hint: Guests.size_hint                                                                     
         on_press: 
-            #go somewhere
+            app.root.current = 'BellLugagePage'
 
     Button:
         id: Important                                                                               
@@ -29,7 +29,7 @@
         pos_hint: {'center_x': .75, 'center_y': .3}
         size_hint: Guests.size_hint                                                                 
         on_press: 
-            #go somewhere
+            app.root.current = 'BellImportantPage'
 
     Label:
         id: clock
