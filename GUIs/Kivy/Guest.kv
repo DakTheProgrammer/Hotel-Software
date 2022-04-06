@@ -36,7 +36,9 @@
         id: HotSpots                                                                               #name of button
         text: 'Local Hotspots'                                                                           #text in button
         pos_hint: {'center_x': .8, 'center_y': .27}
-        size_hint: Checking.size_hint                                                                     #allows resize
+        size_hint: Checking.size_hint    
+        on_press:
+            app.root.current = 'HotSpotsPage'                                                                 #allows resize
 
     Label:
         id: clock
