@@ -20,7 +20,9 @@
         id: HotelInfo                                                                               #name of button
         text: 'Hotel Hours'                                                                           #text in button
         pos_hint: {'center_x': .2, 'center_y': .5}
-        size_hint: Checking.size_hint                                                                     #allows resize
+        size_hint: Checking.size_hint
+        on_press:
+            app.root.current = 'GuestHoursPage'                                                                #allows resize
 
     Button:
         id: RoomService                                                                               #name of button
