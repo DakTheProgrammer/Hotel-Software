@@ -1,0 +1,16 @@
+<InventoryPage>:
+    name: 'InventoryPage'                   #name of the page
+
+    canvas:
+        Rectangle:                          #essentialy is the background
+            pos: self.pos                   #placed on screen
+            size: self.size                 #size of screen
+            #source: 'images/bellhopbg.jpg'
+
+    Button:
+        id: Back                                                                              #name of button
+        text: 'Back'                                                                           #text in button
+        size_hint: (.4, .1)                                                                  #allows resize
+        pos_hint: {'center_x': 0.5, 'center_y': 0.1} 
+        on_press: 
+            app.root.current = 'ServicePage'
