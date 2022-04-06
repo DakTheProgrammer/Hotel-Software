@@ -5,4 +5,66 @@
         Rectangle:                          #essentialy is the background
             pos: self.pos                   #placed on screen
             size: self.size                 #size of screen
-            source: 'images/guestbg.jpg'    # background image of screen
+            source: 'images/guestbg.jpg'    #background image of screen
+
+    Button:
+        id: Checking                                                                               #name of button
+        text: 'Check In/Out'                                                                           #text in button
+        pos_hint: {'center_x': .2, 'center_y': .8}
+        size_hint: (.25, .25)              
+        on_press:
+            #Still need to determine if guest already has a room and take that into account w/ buttons
+            Factory.Checking().open()
+
+    Button:
+        id: HotelInfo                                                                               #name of button
+        text: 'Hotel Hours'                                                                           #text in button
+        pos_hint: {'center_x': .2, 'center_y': .5}
+        size_hint: Checking.size_hint
+        on_press:
+            app.root.current = 'GuestHoursPage'                                                                #allows resize
+
+    Button:
+        id: RoomService                                                                               #name of button
+        text: 'Room Service'                                                                           #text in button
+        pos_hint: {'center_x': .5, 'center_y': .27}
+        size_hint: Checking.size_hint                                                                #allows resize
+        on_press: 
+            app.root.current = 'ServicePage'
+
+    Button:
+        id: HotSpots                                                                               #name of button
+        text: 'Local Hotspots'                                                                           #text in button
+        pos_hint: {'center_x': .8, 'center_y': .27}
+        size_hint: Checking.size_hint    
+        on_press:
+            app.root.current = 'HotSpotsPage'                                                                 #allows resize
+
+    Label:
+        id: clock
+        text:''                                                            
+        pos_hint: {'center_x': .66, 'center_y': .75}
+        size_hint: Checking.size_hint    
+        font_size: 60
+
+    Label:
+        id: date
+        text: ''                                                              
+        pos_hint: {'center_x': .66, 'center_y': .66}
+        size_hint: Checking.size_hint
+        font_size: 40
+
+    Label:
+        id: room
+        text: ' Room: Not Checked In'                                                              
+        pos_hint: {'center_x': .65, 'center_y': .575}
+        size_hint: Checking.size_hint
+        font_size: 35
+        
+    Button:
+        id: SignOut
+        text: 'Sign Out'
+        pos_hint: {'center_x': .949, 'center_y': .029}
+        size_hint: (.1, .05)
+        on_press: 
+            app.root.current = 'LogPage'

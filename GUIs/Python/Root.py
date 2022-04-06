@@ -7,7 +7,7 @@ Config.set('graphics', 'resizable', False)
 from kivymd.app import MDApp as App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
-
+from kivy_garden.mapview import MapView
 
 #Have to be here so that Kivy can see all classes
 from GUIs.Python.Login import LoginPage
@@ -27,6 +27,8 @@ from GUIs.Python.Orders import OrdersPage
 from GUIs.Python.BellGuest import BellGuestPage
 from GUIs.Python.BellImportant import BellImportantPage
 from GUIs.Python.BellLugage import BellLugagePage
+from GUIs.Python.GuestHours import GuestHoursPage
+from GUIs.Python.HotSpots import HotSpotsPage
 
 class WindowManager(ScreenManager):
     """

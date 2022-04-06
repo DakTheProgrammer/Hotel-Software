@@ -1,0 +1,36 @@
+<Checking@Popup>:
+    id: Checking
+    title: ""                   #No need for a title but it has to be here
+    size_hint : (None,None)
+    width : 400                 #Make the confirmation smaller than screen
+    height: 250
+    auto_dismiss: False         #Don't exit box until user presses button
+
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint: 1, 0.9
+            Label:
+                id: checkIn
+                text: 'Are you sure you want to Check In?'
+                font_size: 20
+
+        ScatterLayout:
+            rows: 1
+            row_force_default: True
+            row_default_height: '46dp'
+            col_force_default: True
+            col_default_width: '150dp'
+            Button:
+                text: 'Check In'
+                pos_hint: {'center_x': .7, 'center_y': .8}
+                size_hint: .3, .45
+                on_release:
+                    app.root.get_screen('GuestPage').checkin()  #Change guest screen to new room #
+                    root.dismiss()
+                    
+            Button:
+                text: 'Cancel'
+                pos_hint: {'center_x': .3, 'center_y': .8}
+                size_hint: .3, .45
+                on_release: root.dismiss()

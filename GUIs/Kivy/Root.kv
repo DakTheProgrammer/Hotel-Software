@@ -2,9 +2,11 @@
 
 #: import NoTransition kivy.uix.screenmanager.NoTransition
 #: import Factory kivy.factory.Factory
+#: import MapView kivy.garden.mapview.MapView
 
 #: include GUIs\kivy\Login.kv
 #: include GUIs\kivy\Register.kv
+#: include GUIs\kivy\Checking.kv
 #: include GUIs\kivy\Guest.kv
 #: include GUIs\kivy\Attendant.kv
 #: include GUIs\kivy\Bellhop.kv
@@ -20,6 +22,8 @@
 #: include GUIs\kivy\BellGuest.kv
 #: include GUIs\kivy\BellImportant.kv
 #: include GUIs\kivy\BellLugage.kv
+#: include GUIs\kivy\GuestHours.kv
+#: include GUIs\kivy\HotSpots.kv
 
 WindowManager:
     #Screen Numbers:
@@ -58,19 +62,25 @@ WindowManager:
     ManagerRoomPage:
 
     #11
-    OrdersPage:
+    GuestHoursPage:
 
     #12
-    InventoryPage:
+    HotSpotsPage:
 
     #13
-    EditServicesPage:
+    OrdersPage:
 
     #14
-    BellGuestPage:
+    InventoryPage:
 
     #15
-    BellImportantPage:
+    EditServicesPage:
 
     #16
+    BellGuestPage:
+
+    #17
+    BellImportantPage:
+
+    #18
     BellLugagePage:

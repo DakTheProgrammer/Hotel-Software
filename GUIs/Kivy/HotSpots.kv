@@ -1,0 +1,22 @@
+<HotSpotsPage>:
+    name: 'HotSpotsPage'                   #name of the page
+
+    canvas:
+        Rectangle:                          #essentialy is the background
+            pos: self.pos                   #placed on screen
+            size: self.size                 #size of screen
+            source: 'images/guestbg.jpg'
+
+    MapView:                                #This is good enough for now
+        id: map                             #Does not show anything on map but city/road names
+        lat: root.getLat()
+        lon: root.getLon()
+        zoom: 10
+    
+    Button:
+        id: Exit
+        text: 'X'
+        pos_hint: {'center_x': .949, 'center_y': .959}
+        size_hint: (.05, .05)
+        on_press: 
+            app.root.current = 'GuestPage'
