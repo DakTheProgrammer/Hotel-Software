@@ -1,0 +1,29 @@
+<NoRoomPop@Popup>:
+    id: NoRoomPop
+    title: ""                   #No need for a title but it has to be here
+    size_hint : (None,None)
+    width : 450                 #Make the confirmation smaller than screen
+    height: 250
+    auto_dismiss: False         #Don't exit box until user presses button
+
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint: 1, 0.9
+            Label:
+                id: checkIn
+                text: 'You must check into a room to order room service!'
+                font_size: 18
+
+        ScatterLayout:
+            rows: 1
+            row_force_default: True
+            row_default_height: '46dp'
+            col_force_default: True
+            col_default_width: '150dp'
+            Button:
+                text: 'OK'
+                pos_hint: {'center_x': .5, 'center_y': .8}
+                size_hint: .3, .45
+                on_release:
+                    root.dismiss()

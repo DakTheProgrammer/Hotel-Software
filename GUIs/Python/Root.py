@@ -30,6 +30,11 @@ from GUIs.Python.BellLugage import BellLugagePage
 from GUIs.Python.GuestHours import GuestHoursPage
 from GUIs.Python.HotSpots import HotSpotsPage
 from GUIs.Python.GuestRoomService import GuestRoomServicePage
+from GUIs.Python.Food import FoodPage
+from GUIs.Python.Toiletries import ToiletriesPage
+from GUIs.Python.Internet import InternetPage
+from GUIs.Python.Cart import CartPage
+
 
 
 class WindowManager(ScreenManager):
