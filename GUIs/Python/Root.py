@@ -29,6 +29,8 @@ from GUIs.Python.BellImportant import BellImportantPage
 from GUIs.Python.BellLugage import BellLugagePage
 from GUIs.Python.GuestHours import GuestHoursPage
 from GUIs.Python.HotSpots import HotSpotsPage
+from GUIs.Python.GuestRoomService import GuestRoomServicePage
+
 
 class WindowManager(ScreenManager):
     """
