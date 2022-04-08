@@ -9,6 +9,9 @@
 #: include GUIs\kivy\Checking.kv
 #: include GUIs\kivy\Guest.kv
 #: include GUIs\kivy\Attendant.kv
+#: include GUIs\kivy\AttendantInterface.kv
+#: include GUIs\kivy\AttendantRoom.kv
+#: include GUIs\kivy\AttChecking.kv
 #: include GUIs\kivy\Bellhop.kv
 #: include GUIs\kivy\Manager.kv
 #: include GUIs\kivy\RoomService.kv
@@ -24,6 +27,16 @@
 #: include GUIs\kivy\BellLugage.kv
 #: include GUIs\kivy\GuestHours.kv
 #: include GUIs\kivy\HotSpots.kv
+#: include GUIs\kivy\GuestRoomService.kv
+#: include GUIs\kivy\Food.kv
+#: include GUIs\kivy\Toiletries.kv
+#: include GUIs\kivy\Internet.kv
+#: include GUIs\kivy\Cart.kv
+#: include GUIs\kivy\NoRoomPop.kv
+#: include GUIs\kivy\NoItemsPop.kv
+#: include GUIs\kivy\ContactEmployee.kv
+
+
 
 WindowManager:
     #Screen Numbers:
@@ -41,46 +54,70 @@ WindowManager:
     AttendantPage:
 
     #4
-    BellhopPage:
+    AttendantInterfacePage:
 
     #5
-    ManagerPage:
+    AttendantRoomPage:
 
     #6
-    ServicePage:
+    BellhopPage:
 
     #7
-    ManagerInterfacePage:
+    ManagerPage:
 
     #8
+    ServicePage:
+
+    #9
+    ManagerInterfacePage:
+
+    #10
     ManagerSignUpPage:
     
-    #9
+    #11
     ManagerRevenuePage:
     
-    #10
+    #12
     ManagerRoomPage:
 
-    #11
+    #13
     GuestHoursPage:
 
-    #12
-    HotSpotsPage:
-
-    #13
-    OrdersPage:
-
     #14
-    InventoryPage:
+    GuestRoomServicePage:
 
     #15
-    EditServicesPage:
+    FoodPage:
 
     #16
-    BellGuestPage:
+    ToiletriesPage:
 
     #17
-    BellImportantPage:
+    InternetPage:
 
     #18
+    CartPage:
+
+    #19
+    HotSpotsPage:
+
+    #20
+    OrdersPage:
+
+    #21
+    InventoryPage:
+
+    #22
+    EditServicesPage:
+
+    #23
+    BellGuestPage:
+
+    #24
+    BellImportantPage:
+
+    #25
     BellLugagePage:
+
+    #26
+    AttendantCheckingPage:

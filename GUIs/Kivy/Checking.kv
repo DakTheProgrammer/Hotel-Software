@@ -22,11 +22,11 @@
             col_force_default: True
             col_default_width: '150dp'
             Button:
-                text: 'Check In'
+                text: app.root.get_screen('GuestPage').checkType()
                 pos_hint: {'center_x': .7, 'center_y': .8}
                 size_hint: .3, .45
                 on_release:
-                    app.root.get_screen('GuestPage').checkin()  #Change guest screen to new room #
+                    app.root.get_screen('GuestPage').checked()  #Change guest screen to new room #
                     root.dismiss()
                     
             Button:

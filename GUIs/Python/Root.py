@@ -14,6 +14,9 @@ from GUIs.Python.Login import LoginPage
 from GUIs.Python.Register import RegisterPage
 from GUIs.Python.Guest import GuestPage
 from GUIs.Python.Attendant import AttendantPage
+from GUIs.Python.AttendantInterface import AttendantInterfacePage
+from GUIs.Python.AttendantRoom import AttendantRoomPage
+from GUIs.Python.AttChecking import AttendantCheckingPage
 from GUIs.Python.Bellhop import BellhopPage
 from GUIs.Python.Manager import ManagerPage
 from GUIs.Python.RoomService import ServicePage
@@ -29,6 +32,13 @@ from GUIs.Python.BellImportant import BellImportantPage
 from GUIs.Python.BellLugage import BellLugagePage
 from GUIs.Python.GuestHours import GuestHoursPage
 from GUIs.Python.HotSpots import HotSpotsPage
+from GUIs.Python.GuestRoomService import GuestRoomServicePage
+from GUIs.Python.Food import FoodPage
+from GUIs.Python.Toiletries import ToiletriesPage
+from GUIs.Python.Internet import InternetPage
+from GUIs.Python.Cart import CartPage
+
+
 
 class WindowManager(ScreenManager):
     """
