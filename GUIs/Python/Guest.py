@@ -19,13 +19,13 @@ class GuestPage(Screen):
     def checkType(self):
         
         if(self.ids.room.text == ' [b]Room:[/b] [font=Consolai]Not Checked In[/font]'):
-            return 'images/CheckInB2.png'
+            return 'images/CheckInB.png'
 
         else:
-            return 'images/CheckOutB2.png'
+            return 'images/CheckOutB.png'
 
     def checked(self):
-        if(self.ids.Checking.background_normal == 'images/CheckInB2.png'):
+        if(self.ids.Checking.background_normal == 'images/CheckInB.png'):
             #Temporary until able to see which rooms are available
             self.ids.room.text = ' Room: 118'
         else:

@@ -5,7 +5,7 @@
         Rectangle:                          #essentialy is the background
             pos: self.pos                   #placed on screen
             size: self.size                 #size of screen
-            source: 'images/guestbg.jpg'    #background image of screen
+            source: 'images/guestbg2.jpg'    #background image of screen
 
     Button:
         id: Checking                                                                               #name of button
@@ -20,7 +20,7 @@
     Button:
         id: HotelInfo                                                                               #name of button
         text: ''                   
-        background_normal: 'images/HotelHoursB2.png'                                                        #text in button
+        background_normal: 'images/HotelHoursB.png'                                                        #text in button
         pos_hint: {'center_x': .2, 'center_y': .5}
         size_hint: Checking.size_hint
         on_press:
@@ -29,7 +29,7 @@
     Button:
         id: RoomService                                                                               #name of button
         text: ''         
-        background_normal: 'images/RoomServiceB.png'                                                                  #text in button
+        background_normal: 'images/RoomServiceB2.png'                                                                  #text in button
         pos_hint: {'center_x': .5, 'center_y': .24}
         size_hint: Checking.size_hint                                                                #allows resize
         on_press: 
@@ -40,7 +40,7 @@
         text: ''                                                                           #text in button
         pos_hint: {'center_x': .825, 'center_y': .24}
         size_hint: Checking.size_hint  
-        background_normal: 'images/HotSpotsB.png'  
+        background_normal: 'images/HotSpotsB2.png'  
         on_press:
             app.root.current = 'HotSpotsPage'                                                                 #allows resize
 
