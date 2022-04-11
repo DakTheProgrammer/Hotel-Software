@@ -9,16 +9,18 @@
 
     Button:
         id: Checking                                                                               #name of button
-        text: root.checkType()                                                                          #text in button
+        text: ''           
+        background_normal: root.checkType()                                                              #text in button
         pos_hint: {'center_x': .2, 'center_y': .8}
-        size_hint: (.25, .25) 
+        size_hint: (.39, .29) 
         on_press:
             #Still need to determine if guest already has a room and take that into account w/ buttons
             Factory.Checking().open()
 
     Button:
         id: HotelInfo                                                                               #name of button
-        text: 'Hotel Hours'                                                                           #text in button
+        text: ''                   
+        background_normal: 'images/HotelHoursB2.png'                                                        #text in button
         pos_hint: {'center_x': .2, 'center_y': .5}
         size_hint: Checking.size_hint
         on_press:
@@ -26,7 +28,8 @@
 
     Button:
         id: RoomService                                                                               #name of button
-        text: 'Room Service'                                                                           #text in button
+        text: ''         
+        background_normal: 'images/RoomServiceB.png'                                                                  #text in button
         pos_hint: {'center_x': .5, 'center_y': .24}
         size_hint: Checking.size_hint                                                                #allows resize
         on_press: 
@@ -34,32 +37,36 @@
 
     Button:
         id: HotSpots                                                                               #name of button
-        text: 'Local Hotspots'                                                                           #text in button
-        pos_hint: {'center_x': .8, 'center_y': .24}
-        size_hint: Checking.size_hint    
+        text: ''                                                                           #text in button
+        pos_hint: {'center_x': .825, 'center_y': .24}
+        size_hint: Checking.size_hint  
+        background_normal: 'images/HotSpotsB.png'  
         on_press:
             app.root.current = 'HotSpotsPage'                                                                 #allows resize
 
     Label:
         id: clock
-        text:''                                                            
-        pos_hint: {'center_x': .66, 'center_y': .75}
+        text:''     
+        markup: True                                                       
+        pos_hint: {'center_x': .67, 'center_y': .75}
         size_hint: Checking.size_hint    
-        font_size: 60
+        font_size: 70
 
     Label:
         id: date
-        text: ''                                                              
-        pos_hint: {'center_x': .66, 'center_y': .66}
+        text: '' 
+        markup: True                                                             
+        pos_hint: {'center_x': .67, 'center_y': .66}
         size_hint: Checking.size_hint
-        font_size: 40
+        font_size: 50
 
     Label:
         id: room
-        text: ' Room: Not Checked In'                                                              
-        pos_hint: {'center_x': .65, 'center_y': .575}
+        markup: True
+        text: ' [b]Room:[/b] [font=Consolai]Not Checked In[/font]'    
+        pos_hint: {'center_x': .66, 'center_y': .575}
         size_hint: Checking.size_hint
-        font_size: 35
+        font_size: 40
         
     Button:
         id: Profile                                                                            #name of button
@@ -68,12 +75,14 @@
         size_hint: (.22,.3)
         background_normal: 'images/profileButton.png'
         on_press:
-            app.root.current = 'HotSpotsPage'                                                                 #allows resize
+            app.root.current = 'GuestProfilePage'                                                                 #allows resize
 
     Button:
         id: SignOut
-        text: 'Sign Out'
+        text: '[b]Sign Out[/b]'
+        markup: True
         pos_hint: {'center_x': .949, 'center_y': .029}
         size_hint: (.1, .05)
+        background_color: (2,0,0,10)
         on_press: 
             app.root.current = 'LogPage'

@@ -34,6 +34,7 @@ from GUIs.Python.Food import FoodPage
 from GUIs.Python.Toiletries import ToiletriesPage
 from GUIs.Python.Internet import InternetPage
 from GUIs.Python.Cart import CartPage
+from GUIs.Python.GuestProfile import GuestProfilePage
 
 
 
