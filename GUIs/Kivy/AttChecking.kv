@@ -11,8 +11,11 @@
         id: Add                                                                                 #name of button
         text: 'Check In/Out Guest'                                                                           #text in button
         pos_hint: {'center_x': 0.75, 'center_y': 0.15}
-		size_hint: (.4, .05)                                                                 #allows resize 
-        on_press: #I'll do it later
+		    size_hint: (.4, .05)                                                                 #allows resize 
+
+        on_press:   
+            #Still need to determine if guest already has a room and take that into account w/ buttons
+            Factory.Checking().open()
 
     Button:
         id: Back                                                                              #name of button
