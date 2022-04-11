@@ -11,12 +11,13 @@
         id: map                             #Does not show anything on map but city/road names
         lat: root.getLat()
         lon: root.getLon()
-        zoom: 10
+        zoom: 18                            #Zoom in to be able to see local places
     
     Button:
         id: Exit
-        text: 'X'
-        pos_hint: {'center_x': .949, 'center_y': .959}
-        size_hint: (.05, .05)
+        text: ''
+        pos_hint: {'center_x': .915, 'center_y': .93}
+        size_hint: (.15, .12)
+        background_normal: 'images/mapXButton.png'
         on_press: 
             app.root.current = 'GuestPage'
