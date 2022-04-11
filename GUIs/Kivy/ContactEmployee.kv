@@ -1,0 +1,40 @@
+<ContactEmployee@Popup>:
+    id: ContactEmployee
+    title: ""                   #No need for a title but it has to be here
+    size_hint : (None,None)
+    width : 750                 #Make the confirmation smaller than screen
+    height: 450
+    auto_dismiss: False         #Don't exit box until user presses button
+
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint: 1, 0.9
+            Label:
+                id: checkIn
+                text: 'Enter Message Below:'
+                font_size: 18
+
+        ScatterLayout:
+            rows: 1
+            row_force_default: True
+            row_default_height: '46dp'
+            col_force_default: True
+            col_default_width: '150dp'
+            TextInput:
+                id: Message                                    #Name of textbox
+                text: '. . .'                                  #text in textbox
+                pos_hint:  {'center_x': .5, 'center_y': .9}                 #postion relative ot password box NOTE: the + portion of the y is used as an offset to space objects
+                size_hint: (.6, .6)
+            
+            Button:
+                text: 'Send Message'
+                pos_hint: {'center_x': .7, 'center_y': .3}
+                size_hint: .3, .2
+                on_release: root.dismiss()
+                    
+            Button:
+                text: 'Cancel'
+                pos_hint: {'center_x': .3, 'center_y': .3}
+                size_hint: .3, .2
+                on_release: root.dismiss()

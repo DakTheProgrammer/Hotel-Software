@@ -38,13 +38,13 @@ class LoginPage(Screen):
             if res[5] == 'Guest':
                 page = 2
             elif res[5] == 'Manager':
-                page = 5
+                page = 7
             elif res[5] == 'Attendant':
                 page = 3
             elif res[5] == 'Bellhop':
-                page = 4
-            elif res[5] == 'Room Service':
                 page = 6
+            elif res[5] == 'Room Service':
+                page = 8
             
             return page
         else:
