@@ -13,6 +13,8 @@ class ManagerRevenuePage(Screen):
             self.table = MDDataTable(
                 pos_hint = {'center_x': 0.5, 'center_y': 0.575},
                 size_hint =(0.9, 0.75),
+                use_pagination=True,
+                rows_num = 7,
                 column_data = [
                     ("Date", dp(45)),
                     ("Description", dp(45)),

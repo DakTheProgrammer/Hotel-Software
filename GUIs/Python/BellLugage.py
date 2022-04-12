@@ -31,6 +31,8 @@ class BellLugagePage(Screen):
                 pos_hint = {'center_x': 0.5, 'center_y': 0.575},
                 size_hint =(0.9, 0.75),
                 check = True,
+                use_pagination=True,
+                rows_num = 7,
                 column_data = [
                     ("First Name", dp(30)),
                     ("Last Name", dp(30)),

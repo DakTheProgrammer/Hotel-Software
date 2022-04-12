@@ -32,6 +32,8 @@ class EditServicesPage(Screen):
                 pos_hint = {'center_x': 0.5, 'center_y': 0.575},
                 size_hint =(0.9, 0.75),
                 check = True,
+                use_pagination=True,
+                rows_num = 7,
                 column_data = [
                     ("Item", dp(45)),
                     ("Amount", dp(45)),
