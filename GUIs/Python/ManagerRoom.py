@@ -7,7 +7,6 @@ from Classes.EasySQL import DB
 
 class ManagerRoomPage(Screen):
     table = None
-    row_check = [] 
 
     def on_pre_enter(self):
         self.loading = Image(
@@ -20,8 +19,6 @@ class ManagerRoomPage(Screen):
         self.add_widget(self.loading)
 
     def on_enter(self):
-        self.row_check = []
-
         #needed for a bug fix with kivy
         if self.table == None:
             query = 'SELECT Room, Occupancy, Status FROM Room'
