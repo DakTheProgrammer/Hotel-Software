@@ -34,9 +34,12 @@ class LoginPage(Screen):
             #makes result mutable
             res = list(res[0])
 
+            #Everyone has a profile so have profile show correct user information
+            self.parent.get_screen('ProfilePage').getUser(usr)          #Need the username for getting room from database        
+
             #if a guest go to guest page(pages indexed by numbers)
             if res[5] == 'Guest':
-                self.parent.get_screen('GuestPage').getUsername(usr)       #Need the username for getting room from database        
+                self.parent.get_screen('GuestPage').getUsername(usr)        #Need the username for getting room from database        
                 page = 2
             elif res[5] == 'Manager':
                 page = 7
