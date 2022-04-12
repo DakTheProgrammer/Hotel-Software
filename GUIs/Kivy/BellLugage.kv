@@ -21,7 +21,7 @@
         pos_hint: {'center_x': 0.75, 'center_y': 0.15}
 		size_hint: (.4, .05)                                                                 #allows resize 
         on_press: 
-            #call some function                                           #Goes to Interface page
+            root.take()                                           #Goes to Interface page
     
     Button:
         id: Complete                                                                              #name of button
@@ -29,7 +29,7 @@
         size_hint: (.4, .05)                                                                 #allows resize
         pos_hint: {'center_x': 0.25, 'center_y': 0.15} 
         on_press: 
-            #call some function
+            root.complete()
 
     Button:
         id: Update                                                                              #name of button
@@ -37,4 +37,4 @@
         size_hint: (.4, .05)                                                                 #allows resize
         pos_hint: {'center_x': 0.25, 'center_y': 0.0775} 
         on_press: 
-            #update table with db
+            root.up()
