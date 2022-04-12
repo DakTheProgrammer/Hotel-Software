@@ -36,6 +36,7 @@ class LoginPage(Screen):
 
             #if a guest go to guest page(pages indexed by numbers)
             if res[5] == 'Guest':
+                self.parent.get_screen('GuestPage').getUsername(usr)       #Need the username for getting room from database        
                 page = 2
             elif res[5] == 'Manager':
                 page = 7

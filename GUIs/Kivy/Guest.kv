@@ -10,7 +10,7 @@
     Button:
         id: Checking                                                                               #name of button
         text: ''           
-        background_normal: root.checkType()                                                              #text in button
+        background_normal: ''                                                              #text in button
         pos_hint: {'center_x': .2, 'center_y': .8}
         size_hint: (.39, .29) 
         on_press:
@@ -63,7 +63,7 @@
     Label:
         id: room
         markup: True
-        text: ' [b]Room:[/b] [font=Consolai]Not Checked In[/font]'    
+        text: ''    
         pos_hint: {'center_x': .66, 'center_y': .575}
         size_hint: Checking.size_hint
         font_size: 40

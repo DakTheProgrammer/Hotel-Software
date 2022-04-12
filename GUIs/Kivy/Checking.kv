@@ -23,7 +23,7 @@
             col_default_width: '150dp'
             Button:
                 text: 
-                    'Check In' if app.root.get_screen('GuestPage').checkType() == 'images/CheckInB.png' else 'Check Out'
+                    'Check In' if app.root.get_screen('GuestPage').check == 0 else 'Check Out'
                 pos_hint: {'center_x': .7, 'center_y': .8}
                 size_hint: .3, .45
                 on_release:
