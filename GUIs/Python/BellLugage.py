@@ -6,7 +6,8 @@ from kivy.uix.image import Image
 from Classes.EasySQL import DB
 
 class BellLugagePage(Screen):
-    table = None 
+    table = None
+    row_check = []
 
     def on_pre_enter(self):
         self.loading = Image(
@@ -19,6 +20,8 @@ class BellLugagePage(Screen):
         self.add_widget(self.loading)
 
     def on_enter(self):
+        self.row_check = []
+
         #needed for a bug fix with kivy
         if self.table == None:
             query = 'SELECT x.First, x.Last, y.Room, y.Status, y.Location FROM Guest AS x JOIN Bags AS y ON (x.Username = y.Username) WHERE y.Location != "None"'
@@ -40,6 +43,8 @@ class BellLugagePage(Screen):
                 ],
             )
 
+            self.table.bind(on_check_press=self.on_check_press)
+
             for items in info:
                 self.table.row_data.append(items)
 
@@ -48,29 +53,33 @@ class BellLugagePage(Screen):
         self.remove_widget(self.loading)
 
     def up(self):
-        self.remove_widget(self.table)
-        self.table = None
         self.parent.current = 'BellhopPage' #this line right here says what is wrong with kivy as a GUI library
         self.parent.current = 'BellLugagePage'
 
     def take(self):
-        rows = self.table.get_row_checks()
-
-        if rows != []:
+        if self.row_check != []:
             
-            for row in rows:
+            for row in self.row_check:
                 query = f'UPDATE Bags SET status = "Taken", Location = "Taken" WHERE Room = "{row[2]}"'
                 DB.run(query)
       
-            self.up()
+        self.up()
 
     def complete(self):
-        rows = self.table.get_row_checks()
-
-        if rows != []:
+        if self.row_check != []:
             
-            for row in rows:
+            for row in self.row_check:
                 query = f'UPDATE Bags SET status = "Taken", Location = "None" WHERE Room = "{row[2]}"'
                 DB.run(query)
       
         self.up()
+
+    def on_check_press(self, instance_table, current_row):
+        if current_row in self.row_check:
+            self.row_check.remove(current_row)
+        else:
+            self.row_check.append(current_row)
+
+    def on_pre_leave(self):
+        self.remove_widget(self.table)
+        self.table = None

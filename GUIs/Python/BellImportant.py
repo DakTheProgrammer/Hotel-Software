@@ -46,7 +46,9 @@ class BellImportantPage(Screen):
         self.remove_widget(self.loading)
 
     def up(self):
-        self.remove_widget(self.table)
-        self.table = None
         self.parent.current = 'BellhopPage' #this line right here says what is wrong with kivy as a GUI library
         self.parent.current = 'BellImportantPage'
+
+    def on_pre_leave(self):
+        self.remove_widget(self.table)
+        self.table = None
