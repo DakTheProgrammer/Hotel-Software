@@ -1,4 +1,5 @@
 from kivy.uix.screenmanager import Screen
+from kivymd.app import MDApp as App
 
 from Classes.EasySQL import DB
 
@@ -45,6 +46,11 @@ class LoginPage(Screen):
                 page = 6
             elif res[5] == 'Room Service':
                 page = 8
+
+            if res[5] != 'Guest':
+                query = f'UPDATE Employee SET Status = True WHERE Username = "{usr}"'
+                DB.run(query)
+                App.get_running_app().username = usr
             
             return page
         else:
