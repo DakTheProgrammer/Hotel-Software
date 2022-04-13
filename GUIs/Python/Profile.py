@@ -1,11 +1,10 @@
 
 from kivy.uix.screenmanager import Screen
-
+from GUIs.Python.ImageButton import IButton
 from Classes.EasySQL import DB
 
 class ProfilePage(Screen):
-
-    #Need the username of the user in order to get their information properly
+    #Need the username of the account in order to get their information properly
     def getUser(self, username):
         #gets user information needed to display
         self.Info = DB.run(f"""SELECT First, Last, Email, Type FROM Users
@@ -21,25 +20,36 @@ class ProfilePage(Screen):
             role = DB.run(f"""SELECT Role FROM Employee WHERE Username = '{username}'""")
             self.Info.append(''.join(list(role[0])))
 
-    def getName(self):
-        return f"Name: {self.Info[0]} {self.Info[1]}"
+        self.setImage()
+        self.setName()
 
-    def getEmail(self):
-        return f"Email: {self.Info[2]}"
+    def on_pre_enter(self):
+        home = IButton(
+                source = 'images/HomeIcon.png', 
+                size_hint = (.2,.2), 
+                pos_hint  = {"x":0.81, "top":0.6}, 
+            )
+        home.bind(on_press = self.Home)
+        self.add_widget(home)
+        
+    def Home(self, widget):
+        self.parent.current = "GuestPage"
 
-    def getType(self):
-        return f"Type: {self.Info[3]}"
+    def setImage(self):
+        self.ids.Picture.source = f"images/{self.Info[-1]}Mem.png"
+
+    def setName(self):
+        self.ids.Name.text = f"[b][u]Name:[/u][/b]\n    {self.Info[0]} {self.Info[1]}"
+
+    # # def getEmail(self):
+    # #     return f"Email: {self.Info[2]}"
+
+    # # def getType(self):
+    # #     return f"Type: {self.Info[3]}"
     
-    def getStatus(self):
-        if(self.Info[3] == 'Guest'):
-            image = f"images/{self.Info[-1]}Mem.png"
-            self.setImage(image)
-            return f"Membership: {self.Info[-1]} Status"
-        else:
-            return f"Job: {self.Info[-1]}"
-
-    def setImage(self, img):
-        self.image = img
-
-    def getImage(self):
-        return self.image
+    # # def getStatus(self):
+    # #     if(self.Info[3] == 'Guest'):
+    # #         self.image = f"images/{self.Info[-1]}Mem.png"
+    # #         return f"Membership: {self.Info[-1]} Status"
+    # #     else:
+    # #         return f"Job: {self.Info[-1]}"

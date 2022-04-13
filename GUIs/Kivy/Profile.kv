@@ -5,21 +5,24 @@
         Rectangle:                          #essentialy is the background
             pos: self.pos                   #placed on screen
             size: self.size                 #size of screen
-            source: 'images/guestbg.jpg'    #background image of screen
+            source: 'images/Profilebg.png'    #background image of screen
+
+    Image:
+        id: Picture
+        source: ''
+        pos_hint: {'center_x': .15, 'center_y': .75}
+        size_hint: (.3, .3)
 
     Label:
-        id: clock
-        text:'To Be Continued. . . .'     
-        markup: True                                                       
-        pos_hint: {'center_x': .67, 'center_y': .75}
-        size_hint: (.66, .8)    
-        font_size: 70                                                                #allows resize
+        id: Name
+        text: ''
+        markup: True
+        pos_hint: {'center_x': .5, 'center_y': .75}
+        size_hint: (.4, .4)
+        font_size: 40
 
-    Button:
-        id: SignOut
-        text: 'Back'
-        pos_hint: {'center_x': .949, 'center_y': .029}
-        size_hint: (.1, .05)
-        background_color: (1,0,0,1)
-        on_press: 
-            app.root.current = 'GuestPage'
+        # text:'To Be Continued. . . .'     
+        # markup: True                                                       
+        # pos_hint: {'center_x': .67, 'center_y': .75}
+        # size_hint: (.66, .8)    
+        # font_size: 70                                                                #allows resize
