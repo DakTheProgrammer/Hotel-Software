@@ -12,8 +12,14 @@ class ProfilePage(Screen):
          WHERE Username = '{username}'""")
         #Combine information into one list
         self.Info = list(self.Info[0])
-        member = DB.run(f"""SELECT Member FROM Guest WHERE Username = '{username}'""")
-        self.Info.append(''.join(list(member[0])))  #yes this looks terrible but it worked
+
+        #User is a Guest
+        if(self.Info[3] == "Guest"):
+            member = DB.run(f"""SELECT Member FROM Guest WHERE Username = '{username}'""")
+            self.Info.append(''.join(list(member[0])))  #yes this looks terrible but it works
+        else:
+            role = DB.run(f"""SELECT Role FROM Employee WHERE Username = '{username}'""")
+            self.Info.append(''.join(list(role[0])))
 
     def getName(self):
         return f"Name: {self.Info[0]} {self.Info[1]}"
@@ -26,5 +32,14 @@ class ProfilePage(Screen):
     
     def getStatus(self):
         if(self.Info[3] == 'Guest'):
-            
+            image = f"images/{self.Info[-1]}Mem.png"
+            self.setImage(image)
+            return f"Membership: {self.Info[-1]} Status"
+        else:
+            return f"Job: {self.Info[-1]}"
 
+    def setImage(self, img):
+        self.image = img
+
+    def getImage(self):
+        return self.image

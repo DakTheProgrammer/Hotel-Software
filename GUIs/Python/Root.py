@@ -38,6 +38,7 @@ from GUIs.Python.Toiletries import ToiletriesPage
 from GUIs.Python.Internet import InternetPage
 from GUIs.Python.Cart import CartPage
 from GUIs.Python.Profile import ProfilePage
+from GUIs.Python.ImageButton import IButton
 
 
 
