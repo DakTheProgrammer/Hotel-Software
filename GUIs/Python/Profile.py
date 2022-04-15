@@ -4,7 +4,7 @@ from GUIs.Python.ImageButton import IButton
 from Classes.EasySQL import DB
 
 class ProfilePage(Screen):
-    #Need the username of the account in order to get their information properly
+    #Need the username of the account in order to get their information
     def getUser(self, username):
         #gets user information needed to display
         self.Info = DB.run(f"""SELECT First, Last, Email, Type FROM Users
@@ -20,8 +20,10 @@ class ProfilePage(Screen):
             role = DB.run(f"""SELECT Role FROM Employee WHERE Username = '{username}'""")
             self.Info.append(''.join(list(role[0])))
 
+        #Set up the interface using the given information
         self.setImage()
         self.setName()
+        self.setInfo()
 
     def on_pre_enter(self):
         home = IButton(
@@ -39,17 +41,10 @@ class ProfilePage(Screen):
         self.ids.Picture.source = f"images/{self.Info[-1]}Mem.png"
 
     def setName(self):
-        self.ids.Name.text = f"[b][u]Name:[/u][/b]\n    {self.Info[0]} {self.Info[1]}"
+        self.ids.Name.text = f"[color=e1c699][b][u]Name:[/u][/b][/color]\n    {self.Info[0]} {self.Info[1]}"
 
-    # # def getEmail(self):
-    # #     return f"Email: {self.Info[2]}"
-
-    # # def getType(self):
-    # #     return f"Type: {self.Info[3]}"
-    
-    # # def getStatus(self):
-    # #     if(self.Info[3] == 'Guest'):
-    # #         self.image = f"images/{self.Info[-1]}Mem.png"
-    # #         return f"Membership: {self.Info[-1]} Status"
-    # #     else:
-    # #         return f"Job: {self.Info[-1]}"
+    def setInfo(self):
+        if(self.Info[3] == 'Guest'):
+            self.ids.Info.text =  f"[color=e1c699][b][u]Email:[/u][/b][/color]\n              {self.Info[2]}"+\
+                                   f"\n[color=e1c699][b][u]Account:[/u][/b][/color]\n              {self.Info[3]}"+\
+                                    f"\n[color=e1c699][b][u]Membership:[/u][/b][/color]\n              {self.Info[-1]} Status"
