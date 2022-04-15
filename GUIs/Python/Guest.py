@@ -60,7 +60,7 @@ class GuestPage(Screen):
         self.checkType()
 
     def getRoomService(self):
-        if(self.ids.Checking.text == 'Check In'):   #Cannot access room service until checked into a room
+        if(self.check == 0):   #Cannot access room service until checked into a room
             Factory.NoRoomPop().open()
         else:
             self.parent.current = 'GuestRoomServicePage'

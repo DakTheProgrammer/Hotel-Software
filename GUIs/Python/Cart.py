@@ -31,7 +31,6 @@ class CartPage(Screen):
 
     def isTableEmpty(self):
         if(self.tableSize == 0):
-            print('here')
             return True
         else:
             return False
