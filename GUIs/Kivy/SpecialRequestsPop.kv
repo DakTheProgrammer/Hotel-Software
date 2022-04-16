@@ -5,7 +5,10 @@
     width : 750                 #Make the confirmation smaller than screen
     height: 450
     auto_dismiss: False         #Don't exit box until user presses button
-    on_dismiss: app.root.get_screen("FoodPage").addCart()
+    on_dismiss: 
+        if root.page == 'Food': app.root.get_screen("FoodPage").addCart() 
+        if root.page == 'Toiletries': app.root.get_screen("ToiletriesPage").addCart()
+        if root.page == 'Internet': app.root.get_screen('InternetPage').addCart()
 
     BoxLayout:
         orientation: 'vertical'

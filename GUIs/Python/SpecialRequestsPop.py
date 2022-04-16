@@ -3,6 +3,7 @@ from kivy.uix.screenmanager import Screen
 
 class SpecialRequests(Popup):
     buying = False
+    page = 'Food'
     
     def Continue(self):
         self.buying = True
@@ -10,6 +11,9 @@ class SpecialRequests(Popup):
 
     def BuyOut(self):
         return self.buying
+
+    def choosePage(self, CartType):
+        self.page = CartType
 
     def leave(self):
         return self.ids.request.text

@@ -56,17 +56,15 @@ class FoodPage(Screen):
         self.remove_widget(self.loading)
 
     def showDescription(self):
-        if(len(self.row_check) == 1):
-            query2 = f"""SELECT Description FROM Menu WHERE Type = "Food" AND Amount > 0 AND '{self.row_check[0][1]}' = Name """
-            description = DB.run(query2)
-            Display = Description()
-            Display.show(description[0][0])
-            Display.open()
-        else:
-            Factory.TooMany().open()
+        query2 = f"""SELECT Description FROM Menu WHERE Type = "Food" AND Amount > 0 AND '{self.row_check[-1][1]}' = Name """
+        description = DB.run(query2)
+        Display = Description()
+        Display.show(description[0][0])
+        Display.open()
 
     def requesting(self):
         self.request = SpecialRequests()
+        self.request.choosePage('Food')
         self.request.open()
 
     def addCart(self):
@@ -75,12 +73,18 @@ class FoodPage(Screen):
             for item in self.row_check:
                 item.append(self.message)
                 self.parent.get_screen('CartPage').cart.append(item)
+        self.up()
 
     def on_check_press(self, instance_table, current_row):
         if current_row in self.row_check:
             self.row_check.remove(current_row)
         else:
             self.row_check.append(current_row)
+
+    
+    def up(self):
+        self.parent.current = 'GuestRoomServicePage' #this line right here says what is wrong with kivy as a GUI library
+        self.parent.current = 'FoodPage'
 
     def on_pre_leave(self):
         self.remove_widget(self.table)
