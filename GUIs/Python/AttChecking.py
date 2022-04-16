@@ -68,9 +68,15 @@ class AttendantCheckingPage(Screen):
         else:
             self.row_check.append(current_row)
 
+    def checkIn(self):
+        for room in self.row_check:
+            query = f'UPDATE Room SET Checked = 1 WHERE Room = "{room[2]}"'
+            DB.run(query)
+        self.up()
+
     def checkOut(self):
         for room in self.row_check:
-            query = f'UPDATE Room SET Checked = 0 WHERE Room = "{self.room[2]}"'
+            query = f'UPDATE Room SET Checked = 0 WHERE Room = "{room[2]}"'
             DB.run(query)
         self.up()
 

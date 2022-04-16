@@ -5,17 +5,14 @@
         Rectangle:                          #essentialy is the background
             pos: self.pos                   #placed on screen
             size: self.size                 #size of screen
-            #source: 'images/bellhopbg.jpg'
+            source: 'images/attendantbg.jpg'
 
     Button:
         id: Add                                                                                 #name of button
         text: 'Check In Guest'                                                                           #text in button
         size_hint: (.4, .05)                                                                 #allows resize
         pos_hint: {'center_x': 0.25, 'center_y': 0.15}                                                                 #allows resize 
-        on_press:   
-            #Still need to determine if guest already has a room and take that into account w/ buttons
-            Factory.Checking().open()
-
+        on_press:   root.checkIn()
     Button:
         id: Remove                                                                               #name of button
         text: 'Check Out Guest'                                                                           #text in button
@@ -27,14 +24,14 @@
         id: Back                                                                              #name of button
         text: 'Back'                                                                           #text in button
         size_hint: (.4, .05)                                                                 #allows resize
-        pos_hint: {'center_x': 0.25, 'center_y': 0.0775}
+        pos_hint: {'center_x': 0.75, 'center_y': 0.0775}
         on_press: 
             app.root.current = 'AttendantPage'
 
     Button:
         id: Update                                                                              #name of button
         text: 'Update'                                                                           #text in button
-        pos_hint: {'center_x': 0.75, 'center_y': 0.0775}
+        pos_hint: {'center_x': 0.25, 'center_y': 0.0775}
 		size_hint: (.4, .05) 
         on_press: 
             root.up()
