@@ -7,6 +7,7 @@ from Classes.EasySQL import DB
 class CartPage(Screen):
     table = None
     tableSize = 0
+    cart = []
 
     def on_pre_enter(self):
         #needed for a bug fix with kivy

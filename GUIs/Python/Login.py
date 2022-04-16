@@ -1,4 +1,5 @@
 from kivy.uix.screenmanager import Screen
+from kivy.uix.button import Button
 
 from Classes.EasySQL import DB
 
@@ -35,7 +36,6 @@ class LoginPage(Screen):
             res = list(res[0])
 
             #Everyone has a profile so have profile show correct user information
-            self.parent.get_screen('ProfilePage').getUser(usr)          #Need the username for getting room from database        
             self.parent.get_screen('ProfilePage').getUser(usr)              #Need the username for getting room from database        
 
             #if a guest go to guest page(pages indexed by numbers)
