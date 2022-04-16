@@ -6,9 +6,8 @@ from Classes.EasySQL import DB
 
 class CartPage(Screen):
     table = None
-    tableSize = 0
     cart = []
-
+    tableSize = len(cart)
     def on_pre_enter(self):
         #needed for a bug fix with kivy
         if self.table == None:
@@ -19,15 +18,16 @@ class CartPage(Screen):
                 column_data = [
                     ("Item", dp(45)),
                     ("Price", dp(45)),
-                    ("Amount", dp(45)),
+                    ("Requests", dp(55))
                 ],
                 row_data = [
 
                 ]
             )
-            for row in self.table.row_data:
+            for item in self.cart:
+                self.table.row_data.append(item)
                 self.tableSize += 1
-            
+
             self.add_widget(self.table)
 
     def isTableEmpty(self):
@@ -35,3 +35,6 @@ class CartPage(Screen):
             return True
         else:
             return False
+
+    def updateCart(self, items):
+        

@@ -3,7 +3,7 @@ import json
 import csv
 import random
 
-con = sqlite3.connect('..\SQLite\Databases\Hotel.sqlite')
+con = sqlite3.connect('SQLite\Databases\Hotel.sqlite')
 cur = con.cursor()
 
 def loadUsers():
@@ -42,7 +42,7 @@ def loadGuests():
 
     for user in users:
         if user[5] == 'Guest':
-            query = f'INSERT INTO Guest (Username, First, Last, Member) VALUES{user[0], user[2], user[3], types[random.randint(0,4)]}'
+            query = f'UPDATE Guest SET (Username, First, Last, Member, Cart) = {user[0], user[2], user[3], types[random.randint(0,4)], "Empty"} WHERE Username = "{user[0]}"'
             cur.execute(query)
             con.commit()
 
@@ -117,6 +117,27 @@ def loadMenu():
         cur.execute(query)
         con.commit()
 
+def loadMessages():
+    cur.execute("DROP TABLE Messages")
+
+    table = """CREATE TABLE Messages(
+    Username varchar(255) NOT NULL,
+    Message varchar(600) NOT NULL,
+    PRIMARY KEY(Username)
+    );"""
+
+    cur.execute(table)
+
+    query = 'SELECT Username FROM Employee'
+    cur.execute(query)
+    con.commit()
+
+    users = cur.fetchall()
+    for row in users:
+        query = f'Insert INTO Messages (Username, Message) VALUES {row[0], "None"}'
+        cur.execute(query)
+        con.commit()
+
 import sys;
 print(sys.version)
 
@@ -126,7 +147,8 @@ print(
 3: Load Guests
 4: Load Rooms
 5: Load Bags
-6: Load Menu''')
+6: Load Menu
+7: Load Messages''')
 sel = int(input())
 match sel:
     case 1:
@@ -141,5 +163,7 @@ match sel:
         loadBags()
     case 6:
         loadMenu()
+    case 7:
+        loadMessages()
     case _:
         print('you are an idiot')

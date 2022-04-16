@@ -73,7 +73,7 @@ class ToiletriesPage(Screen):
             for item in self.row_check:
                 item.append(self.message)
                 self.parent.get_screen('CartPage').cart.append(item)
-        self.up()
+            self.up()
 
     def on_check_press(self, instance_table, current_row):
         if current_row in self.row_check:
