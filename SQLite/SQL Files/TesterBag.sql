@@ -1,0 +1,1 @@
+UPDATE Bags SET Status = 'Not Taken', Location = 'Front Doors' WHERE Username = 'dtw' OR Username = 'awrn' OR Username = 'chadc'

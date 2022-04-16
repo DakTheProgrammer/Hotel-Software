@@ -28,6 +28,8 @@ class BellImportantPage(Screen):
                 pos_hint = {'center_x': 0.5, 'center_y': 0.575},
                 size_hint =(0.9, 0.75),
                 check = False,
+                use_pagination=True,
+                rows_num = 7,
                 column_data = [
                     ("First Name", dp(45)),
                     ("Last Name", dp(45)),
@@ -46,7 +48,9 @@ class BellImportantPage(Screen):
         self.remove_widget(self.loading)
 
     def up(self):
-        self.remove_widget(self.table)
-        self.table = None
         self.parent.current = 'BellhopPage' #this line right here says what is wrong with kivy as a GUI library
         self.parent.current = 'BellImportantPage'
+
+    def on_pre_leave(self):
+        self.remove_widget(self.table)
+        self.table = None

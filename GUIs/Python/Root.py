@@ -4,6 +4,8 @@ from kivy.config import Config
 #above all other kivy imports
 Config.set('graphics', 'resizable', False)
 
+from Classes.EasySQL import DB
+
 from kivymd.app import MDApp as App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
@@ -58,6 +60,7 @@ class WindowManager(ScreenManager):
     pass
 
 class RootApp(App):
+    username = None
     """
     the root of the application
 
@@ -72,3 +75,7 @@ class RootApp(App):
     def build(self):
         self.icon = 'images/icon.png'
         return Builder.load_file('GUIs\Kivy\Root.kv')
+
+    def on_stop(self):
+        query = f'UPDATE Employee SET Status = False WHERE Username = "{self.username}"'
+        DB.run(query)

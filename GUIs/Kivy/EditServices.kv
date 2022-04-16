@@ -16,12 +16,12 @@
             app.root.current = 'ServicePage'
 
     Button:
-        id: Request                                                                              #name of button
-        text: 'Request More'                                                                     #text in button
+        id: Add                                                                              #name of button
+        text: 'Add One'                                                                     #text in button
         size_hint: (.4, .05)                                                                 #allows resize
         pos_hint: {'center_x': 0.25, 'center_y': 0.15} 
         on_press: 
-            #somethig
+            root.add()
 
     Button:
         id: Remove                                                                           #name of button
@@ -29,7 +29,7 @@
         size_hint: (.4, .05)                                                                 #allows resize
         pos_hint: {'center_x': 0.75, 'center_y': 0.15} 
         on_press: 
-            #somethig
+            root.remove()
 
     Button:
         id: Update                                                                              #name of button
@@ -37,4 +37,4 @@
         size_hint: (.4, .05)                                                                 #allows resize
         pos_hint: {'center_x': 0.25, 'center_y': 0.0775} 
         on_press: 
-            #update table with db
+            root.up()

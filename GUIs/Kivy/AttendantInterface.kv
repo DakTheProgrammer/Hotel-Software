@@ -10,8 +10,8 @@
     Button:
         id: Add                                                                                 #name of button
         text: 'Contact Employee'                                                                           #text in button
-        pos_hint: {'center_x': 0.75, 'center_y': 0.15}
-		size_hint: (.4, .05)                                                                 #allows resize 
+        size_hint: (.4, .05)                                                                 #allows resize
+        pos_hint: {'center_x': 0.25, 'center_y': 0.15}                                                                  #allows resize 
         on_press: 
             root.contact()                                                                    #Send message to a certain employee
 
@@ -22,3 +22,11 @@
         pos_hint: {'center_x': 0.25, 'center_y': 0.15} 
         on_press: 
             app.root.current = 'AttendantPage'
+
+    Button:
+        id: Update                                                                              #name of button
+        text: 'Update'                                                                           #text in button
+        pos_hint: {'center_x': 0.75, 'center_y': 0.15}
+		size_hint: (.4, .05) 
+        on_press: 
+            root.up()

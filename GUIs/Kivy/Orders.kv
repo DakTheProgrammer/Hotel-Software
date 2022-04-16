@@ -21,7 +21,7 @@
         size_hint: (.4, .05)                                                                 #allows resize
         pos_hint: {'center_x': 0.25, 'center_y': 0.15} 
         on_press: 
-            #complete order
+            root.complete()
 
     Button:
         id: Update                                                                              #name of button
@@ -29,4 +29,4 @@
         pos_hint: {'center_x': 0.75, 'center_y': 0.15}
 		size_hint: (.4, .05) 
         on_press: 
-            #udate table from db
+            root.up()

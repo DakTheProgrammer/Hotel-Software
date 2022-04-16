@@ -50,6 +50,11 @@ class LoginPage(Screen):
                 page = 6
             elif res[5] == 'Room Service':
                 page = 8
+
+            if res[5] != 'Guest':
+                query = f'UPDATE Employee SET Status = True WHERE Username = "{usr}"'
+                DB.run(query)
+                App.get_running_app().username = usr
             
 
             if res[5] != 'Guest':

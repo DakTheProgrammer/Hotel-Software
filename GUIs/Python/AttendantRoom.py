@@ -23,7 +23,6 @@ class AttendantRoomPage(Screen):
         if self.table == None:
             query = 'SELECT Room, Occupancy, Status FROM Room'
             info = DB.run(query)
-
             self.table = MDDataTable(
                 pos_hint = {'center_x': 0.5, 'center_y': 0.575},
                 size_hint =(0.9, 0.75),
@@ -43,6 +42,8 @@ class AttendantRoomPage(Screen):
                 self.table.row_data.append(items)
 
             self.add_widget(self.table)
+
+        self.remove_widget(self.loading)
         
         self.remove_widget(self.loading)
 
