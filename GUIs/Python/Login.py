@@ -36,6 +36,7 @@ class LoginPage(Screen):
 
             #Everyone has a profile so have profile show correct user information
             self.parent.get_screen('ProfilePage').getUser(usr)          #Need the username for getting room from database        
+            self.parent.get_screen('ProfilePage').getUser(usr)              #Need the username for getting room from database        
 
             #if a guest go to guest page(pages indexed by numbers)
             if res[5] == 'Guest':
@@ -50,6 +51,12 @@ class LoginPage(Screen):
             elif res[5] == 'Room Service':
                 page = 8
             
+
+            if res[5] != 'Guest':
+                query = f'UPDATE Employee SET Status = True WHERE Username = "{usr}"'
+                DB.run(query)
+                App.get_running_app().username = usr
+          
             return page
         else:
             return False

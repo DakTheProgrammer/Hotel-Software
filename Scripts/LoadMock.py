@@ -1,5 +1,6 @@
 import sqlite3
 import json
+import csv
 import random
 
 con = sqlite3.connect('..\SQLite\Databases\Hotel.sqlite')
@@ -90,16 +91,43 @@ def loadBags():
             cur.execute(query)
             con.commit()
         
-        
+def loadMenu():
+    
+    with open('MockData/FoodItems.csv') as f:
+        food = list(csv.reader(f))
+    
+    with open('MockData/ToiletriesItems.csv') as f:
+        Toiletries = list(csv.reader(f))
+
+    with open('MockData/InternetItems.csv') as f:
+        Internet = list(csv.reader(f))
+
+    for row in food:
+        query = f'Insert INTO Menu (Name, Type, SubType, Description, Price, Amount) VALUES{row[0], "Food", row[1], row[2], row[3], random.randint(1,50)}'
+        cur.execute(query)
+        con.commit()
+    
+    for row in Toiletries:
+        query = f'Insert INTO Menu (Name, Type, SubType, Description, Price, Amount) VALUES{row[0], row[1], "Hygiene", row[2], row[3], row[4]}'
+        cur.execute(query)
+        con.commit()
+
+    for row in Internet:
+        query = f'Insert INTO Menu (Name, Type, SubType, Description, Price, Amount) VALUES{row[0], row[1], row[2], row[3], row[4], row[5]}'
+        cur.execute(query)
+        con.commit()
+
+import sys;
+print(sys.version)
 
 print(
 '''1: Load Users
 2: Load Employee
 3: Load Guests
 4: Load Rooms
-5: Load Bags''')
+5: Load Bags
+6: Load Menu''')
 sel = int(input())
-
 match sel:
     case 1:
         loadUsers()
@@ -111,5 +139,7 @@ match sel:
         loadRooms()
     case 5:
         loadBags()
+    case 6:
+        loadMenu()
     case _:
         print('you are an idiot')
