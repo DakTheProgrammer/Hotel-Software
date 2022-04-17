@@ -119,6 +119,27 @@ def loadMessages():
         cur.execute(query)
         con.commit()
 
+def loadMessages():
+    cur.execute("DROP TABLE Messages")
+
+    table = """CREATE TABLE Messages(
+    Username varchar(255) NOT NULL,
+    Message varchar(600) NOT NULL,
+    PRIMARY KEY(Username)
+    );"""
+
+    cur.execute(table)
+
+    query = 'SELECT Username FROM Employee'
+    cur.execute(query)
+    con.commit()
+
+    users = cur.fetchall()
+    for row in users:
+        query = f'Insert INTO Messages (Username, Message) VALUES {row[0], "None"}'
+        cur.execute(query)
+        con.commit()
+
 import sys;
 print(sys.version)
 

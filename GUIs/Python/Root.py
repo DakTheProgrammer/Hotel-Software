@@ -43,6 +43,7 @@ from GUIs.Python.Profile import ProfilePage
 from GUIs.Python.ImageButton import IButton
 from GUIs.Python.DescriptionPop import Description
 from GUIs.Python.SpecialRequestsPop import SpecialRequests
+from GUIs.Python.ContactEmployee import ContactEmployee
 
 
 

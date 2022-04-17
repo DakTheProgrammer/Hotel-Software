@@ -24,7 +24,7 @@ class AttendantCheckingPage(Screen):
 
         #needed for a bug fix with kivy
         if self.table == None:
-            query = 'SELECT x.First, x.Last, y.Room, x.Member FROM Guest AS x JOIN Bags AS y ON (x.username = y.username)'
+            query = 'SELECT First, Last, Room, Checked FROM Room WHERE Status != "Empty"'
             info = DB.run(query)
 
             self.table = MDDataTable(
@@ -37,7 +37,7 @@ class AttendantCheckingPage(Screen):
                     ("First Name", dp(30)),
                     ("Last Name", dp(30)),
                     ('Room', dp(30)),
-                    ('Type', dp(30)),
+                    ('Status', dp(30))
                 ],
                 row_data = [
                     
@@ -47,6 +47,11 @@ class AttendantCheckingPage(Screen):
             self.table.bind(on_check_press=self.on_check_press)
 
             for items in info:
+                items = list(items)
+                if items[-1] == 0:
+                    items[-1] = 'Not Checked In'
+                else:
+                    items[-1] = 'Checked In'
                 self.table.row_data.append(items)
 
             self.add_widget(self.table)
@@ -62,6 +67,18 @@ class AttendantCheckingPage(Screen):
             self.row_check.remove(current_row)
         else:
             self.row_check.append(current_row)
+
+    def checkIn(self):
+        for room in self.row_check:
+            query = f'UPDATE Room SET Checked = 1 WHERE Room = "{room[2]}"'
+            DB.run(query)
+        self.up()
+
+    def checkOut(self):
+        for room in self.row_check:
+            query = f'UPDATE Room SET Checked = 0 WHERE Room = "{room[2]}"'
+            DB.run(query)
+        self.up()
 
     def on_pre_leave(self):
         self.remove_widget(self.table)
