@@ -1,4 +1,5 @@
 from kivy.uix.screenmanager import Screen
+from kivy.uix.button import Button
 from kivymd.app import MDApp as App
 
 from Classes.EasySQL import DB
@@ -35,8 +36,12 @@ class LoginPage(Screen):
             #makes result mutable
             res = list(res[0])
 
+            #Everyone has a profile so have profile show correct user information
+            self.parent.get_screen('ProfilePage').getUser(usr)              #Need the username for getting room from database        
+
             #if a guest go to guest page(pages indexed by numbers)
             if res[5] == 'Guest':
+                self.parent.get_screen('GuestPage').getUsername(usr)        #Need the username for getting room from database        
                 page = 2
             elif res[5] == 'Manager':
                 page = 7
@@ -52,6 +57,12 @@ class LoginPage(Screen):
                 DB.run(query)
                 App.get_running_app().username = usr
             
+
+            if res[5] != 'Guest':
+                query = f'UPDATE Employee SET Status = True WHERE Username = "{usr}"'
+                DB.run(query)
+                App.get_running_app().username = usr
+          
             return page
         else:
             return False

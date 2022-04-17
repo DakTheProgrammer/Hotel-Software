@@ -39,7 +39,10 @@ from GUIs.Python.Food import FoodPage
 from GUIs.Python.Toiletries import ToiletriesPage
 from GUIs.Python.Internet import InternetPage
 from GUIs.Python.Cart import CartPage
-from GUIs.Python.GuestProfile import GuestProfilePage
+from GUIs.Python.Profile import ProfilePage
+from GUIs.Python.ImageButton import IButton
+from GUIs.Python.DescriptionPop import Description
+from GUIs.Python.SpecialRequestsPop import SpecialRequests
 
 
 
