@@ -27,6 +27,8 @@ class EditServicesPage(Screen):
         if self.table == None:
             query = 'SELECT * FROM Inventory'
             info = DB.run(query)
+            query = 'SELECT Name, Amount, Type FROM Menu'
+            info2 = DB.run(query)
 
             self.table = MDDataTable(
                 pos_hint = {'center_x': 0.5, 'center_y': 0.575},
@@ -48,6 +50,8 @@ class EditServicesPage(Screen):
 
             for items in info:
                 self.table.row_data.append(items)
+            for items in info2:
+                self.table.row_data.append(items)
 
             self.add_widget(self.table)
 
@@ -63,6 +67,8 @@ class EditServicesPage(Screen):
             for row in self.row_check:
                 query1 = f'UPDATE Inventory SET Amount = (Amount + 1) WHERE Item = "{row[0]}"'
                 DB.run(query1)
+                query1 = f'UPDATE Menu SET Amount = (Amount + 1) WHERE Name = "{row[0]}"'
+                DB.run(query1)
 
                 query2 = f'INSERT INTO Revenue (Date, Description, Value) VALUES (DATE("{date}"), "{row[0]}", -10.99)'
                 DB.run(query2)
@@ -74,6 +80,8 @@ class EditServicesPage(Screen):
             for row in self.row_check:
                 query = f'UPDATE Inventory SET Amount = (Amount - 1) WHERE Item = "{row[0]}" AND Amount != 0'
                 DB.run(query)
+                query1 = f'UPDATE Menu SET Amount = (Amount - 1) WHERE Name = "{row[0]}" AND Amount != 0'
+                DB.run(query1)
       
         self.up()
 

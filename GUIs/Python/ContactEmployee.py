@@ -9,4 +9,3 @@ class ContactEmployee(Popup):
 
     def wroteMessage(self):
         self.hasMessage = True
-        self.dismiss()

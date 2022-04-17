@@ -11,6 +11,11 @@ class ManagerPage(Screen):
         self.ids.date.text = date.today().strftime("%a., %b %d %Y")
         Clock.schedule_interval(self.updates, 0.5)
 
+    
+    def on_enter(self):
+        self.parent.get_screen('MailPage').getType('Manager')                 #Need the username for going back to right        
+
+
     def updates(self, args):
         self.ids.clock.text = datetime.today().strftime("%I:%M %p")
         self.ids.date.text = date.today().strftime("%a., %b %d %Y")

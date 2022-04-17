@@ -17,12 +17,19 @@ class ProfilePage(Screen):
         if(self.Info[3] == "Guest"):
             member = DB.run(f"""SELECT Member FROM Guest WHERE Username = '{username}'""")
             self.Info.append(''.join(list(member[0])))  #yes this looks terrible but it works
+             #Set up the interface using the given information
+            self.setImage()
         else:
-            role = DB.run(f"""SELECT Role FROM Employee WHERE Username = '{username}'""")
-            self.Info.append(''.join(list(role[0])))
+            role = DB.run(f"""SELECT Status FROM Employee WHERE Username = '{username}'""")
+            self.Info.append(role[0][0])
+            employee = self.Info[3]
+            if(employee == 'Attendant'):
+                self.ids.Picture.source = 'images/AttProfilePic.png'
+            if(self.Info[-1] == 1):
+                self.Info[-1] = 'Active'
+            else:
+                self.Info[-1] = 'Off the Clock'
 
-        #Set up the interface using the given information
-        self.setImage()
         self.setName()
         self.setInfo()
 
@@ -37,21 +44,31 @@ class ProfilePage(Screen):
         self.balance = DB.run(f"""SELECT Balance FROM Guest WHERE Username = '{self.user}'""")
         self.setBalance()
 
-        
-    def Home(self, widget):
-        self.parent.current = "GuestPage"
 
     def setImage(self):
         self.ids.Picture.source = f"images/{self.Info[-1]}Mem.png"
 
     def setName(self):
         self.ids.Name.text = f"[color=e1c699][b][u]Name:[/u][/b][/color]\n    {self.Info[0]} {self.Info[1]}"
+        if(self.Info[3] != 'Guest'):
+            self.ids.Name.pos_hint = {'center_x': .5, 'center_y': .8}
 
     def setInfo(self):
         if(self.Info[3] == 'Guest'):
             self.ids.Info.text =  f"[color=e1c699][b][u]Email:[/u][/b][/color]\n              {self.Info[2]}"+\
                                    f"\n[color=e1c699][b][u]Account:[/u][/b][/color]\n              {self.Info[3]}"+\
                                     f"\n[color=e1c699][b][u]Membership:[/u][/b][/color]\n              {self.Info[-1]} Status"
+        else:
+            self.ids.Info.text =  f"[color=e1c699][b][u]Email:[/u][/b][/color]\n              {self.Info[2]}"+\
+                                   f"\n[color=e1c699][b][u]Assignment:[/u][/b][/color]\n              {self.Info[3]}"+\
+                                    f"\n[color=e1c699][b][u]Status:[/u][/b][/color]\n              {self.Info[-1]}"
+        
 
     def setBalance(self):
-        self.ids.Balance.text = f"[color=e1c699][b][u]Charges:[/u][/b][/color]   ${self.balance[0][0]}"
+        if(self.Info[3] == 'Guest'):
+            self.ids.Balance.text = "[color=e1c699][b][u]Charges:[/u][/b][/color]   ${:.2f}".format(self.balance[0][0])
+        else:
+            self.ids.Balance.text = ''
+
+    def Home(self, widget):
+        self.parent.current = f'{self.Info[3]}Page'

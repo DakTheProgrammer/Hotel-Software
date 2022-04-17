@@ -45,6 +45,7 @@ from GUIs.Python.DescriptionPop import Description
 from GUIs.Python.SpecialRequestsPop import SpecialRequests
 from GUIs.Python.ContactEmployee import ContactEmployee
 from GUIs.Python.DisplayPop import Display
+from GUIs.Python.Mail import MailPage
 
 
 

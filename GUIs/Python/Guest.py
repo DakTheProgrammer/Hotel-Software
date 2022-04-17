@@ -9,6 +9,7 @@ class GuestPage(Screen):
     username = ''
 
     def getUsername(self, username):
+        self.username = username
         #Need what user logged into the system to find out their room number
         #Get what room number has been assigned to the guest's account
         query = f"""SELECT Room FROM Bags WHERE Username = '{username}'"""

@@ -9,7 +9,9 @@ from Classes.EasySQL import DB
 
 class AttendantInterfacePage(Screen):
     table = None
-    ow_check = [] 
+    row_check = []
+    def getUser(self):
+        return self.parent.get_screen('MailPage').user
 
     def on_pre_enter(self):
         self.loading = Image(
@@ -76,6 +78,7 @@ class AttendantInterfacePage(Screen):
 
     
     def sendMessage(self):
+        user  = self.getUser()
         self.message = self.messenger.getMessage()
         if(self.messenger.hasMessage is True):
             for row in self.row_check:
@@ -83,9 +86,9 @@ class AttendantInterfacePage(Screen):
                 email = DB.run(query)
                 email = ''.join(list(email[0])) #Yes this looks stupid but it does what I need it to do
                 if(email != 'None'):
-                    email = f"{email}, {self.message}"
+                    email = f"{email},/:{user}:: {self.message}"
                 else:
-                    email = self.message
+                    email = f"{user}:: {self.message}"
                 query = f'UPDATE Messages SET Message = "{email}" WHERE Username = "{row[0]}"'
                 DB.run(query)
         self.parent.current = "AttendantPage"

@@ -38,6 +38,7 @@ class LoginPage(Screen):
 
             #Everyone has a profile so have profile show correct user information
             self.parent.get_screen('ProfilePage').getUser(usr)              #Need the username for getting room from database        
+            self.parent.get_screen('MailPage').getUser(usr)                 #Need the username for getting room from database        
 
             #if a guest go to guest page(pages indexed by numbers)
             if res[5] == 'Guest':
