@@ -9,47 +9,72 @@
 
     Button:
         id: Staff                                                                               #name of button
-        text: 'Staff'                                                                           #text in button
-        pos_hint: {'center_x': .25, 'center_y': .725}
-        size_hint: (.4, .3)                                                                     #allows resize
+        text: ''                                                                           #text in button
+        pos_hint: {'center_x': .2, 'center_y': .8}
+        size_hint: (.39, .29)                                                                    #allows resize
+        background_normal: 'images/ManStaffB.png'      
         on_press: 
             app.root.current = 'ManagerInterfacePage'                                           #Goes to Interface page
 
     Button:
         id: Rooms                                                                               #name of button
-        text: 'Rooms'                                                                           #text in button
-        pos_hint: {'center_x': .25, 'center_y': .3}
-        size_hint: Staff.size_hint                                                                     #allows resize
+        text: ''                                                                           #text in button
+        pos_hint: {'center_x': .2, 'center_y': .5}
+        size_hint: Staff.size_hint                                                              #allows resize 
+        background_normal: 'images/AttRoomsB.png'                                                                        
         on_press: 
             app.root.current = 'ManagerRoomPage'
 
     Button:
         id: Revenue                                                                               #name of button
-        text: 'Revenue'                                                                           #text in button
-        pos_hint: {'center_x': .75, 'center_y': .3}
-        size_hint: Staff.size_hint                                                                #allows resize
+        text: ''                                                                           #text in button
+        pos_hint: {'center_x': .5, 'center_y': .24}
+        size_hint: Staff.size_hint       
+        background_normal: 'images/ManRevenueB.png'                                                                        #allows resize                                                          #allows resize
         on_press: 
             app.root.current = 'ManagerRevenuePage'
 
+    Button:
+        id: Mail                                                                               #name of button
+        text: ''                                                                           #text in button
+        pos_hint: {'center_x': .825, 'center_y': .24}
+        size_hint: Staff.size_hint  
+        background_normal: 'images/MailB.png'                                                                        #allows resize 
+        on_press:
+            app.root.current = 'MailPage' 
+
     Label:
         id: clock
-        text:''                                                            
-        pos_hint: {'center_x': .75, 'center_y': .75}
-        size_hint: Staff.size_hint
-        font_size: 50
+        text:''     
+        markup: True                                                       
+        pos_hint: {'center_x': .7, 'center_y': .7}
+        size_hint: Staff.size_hint    
+        font_size: 70
 
     Label:
         id: date
-        text: ''                                                              
-        pos_hint: {'center_x': .75, 'center_y': .675}
+        text: '' 
+        markup: True                                                             
+        pos_hint: {'center_x': .7, 'center_y': .61}
         size_hint: Staff.size_hint
-        font_size: 25
+        font_size: 50
+
+       
+    Button:
+        id: Profile                                                                        #name of button
+        text: ''                                                                           #text in button
+        pos_hint: {'center_x': .2, 'center_y': .2}
+        size_hint: (.25,.3)
+        background_normal: 'images/profileB.png'
+        on_press:
+            app.root.current = 'ProfilePage'  
 
     Button:
         id: SignOut
-        text: 'Sign Out'
+        text: '[b]Sign Out[/b]'
+        markup: True
         pos_hint: {'center_x': .949, 'center_y': .029}
         size_hint: (.1, .05)
+        background_color: (2,0,0,10)
         on_press: 
             app.root.current = 'LogPage'
-            root.Log()

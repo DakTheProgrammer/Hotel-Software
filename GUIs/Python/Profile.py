@@ -27,6 +27,9 @@ class ProfilePage(Screen):
                 self.ids.Picture.source = 'images/AttProfilePic.png'
             elif(employee == "Bellhop"):
                 self.ids.Picture.source = 'images/BellProfilePic.png'
+            elif(employee == 'Manager'):
+                self.ids.Picture.source = 'images/ManProfilePic.png'
+
             if(self.Info[-1] == 1):
                 self.Info[-1] = 'Active'
             else:
