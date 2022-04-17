@@ -1,48 +1,48 @@
-Toothbrush,Toiletries,Standard Toothbrush,0.00,27
-Electric Toothbrush,Toiletries,Premium Electric Toothbrush,15.00,46
-Toothpaste,Toiletries,Classic Mint-flavored Toothpaste,0.00,19
-Dental floss,Toiletries,Standard Dental Floss,0.00,15
-Mouthwash,Toiletries,Non-Alcoholic Mouthwash,0.00,13
-Contacts Solution,Toiletries,Opti-Free Contact Lense Solution,5.00,15
-Q-Tips,Toiletries,5 Standard Q-Tips,0.00,33
-Cotton Balls,Toiletries,7 Cotton Balls,0.00,16
-Tweezers,Toiletries,"Plastic, Durable Tweezers",5.00,42
-Nail Clippers,Toiletries,Quality Metal Nail Clippers,15.00,16
-Deodorant- Spring Breeze,Toiletries,Floral Scented Deodorant For Any Occasion,10.00,37
-Deodorant- Mountain Hike,Toiletries,Forest Enhanced Deodorant For The Strongest Scents,10.00,45
-Deodorant- Autumn Wind,Toiletries,Classic Pine and Pumpkin Enfused Scent,10.00,30
-Shampoo- Standard,Toiletries,Travel Size Cucumber Scented Shampoo,0.00,24
-Shampoo- Premium,Toiletries,Medium Sized Coconut Breeze Shampoo,8.00,40
-Conditioner- Standard,Toiletries,Travel Size Cucumber Scented Conditioner,0.00,1
-Conditioner- Premium,Toiletries,Medium Sized Coconut Foam Conditioner,8.00,32
-Soap- Standard,Toiletries,Small Unscented Hand Soap,0.00,35
-Soap- Premium,Toiletries,Quality Soap for Even the Most Sensitive of Hands,8.00,31
-Body Wash- Standard,Toiletries,Travel Sized Lemon Scented Body Wash,0.00,23
-Body Wash- Premium,Toiletries,Small Vanilla Butter Body Wash,8.00,15
-Washcloth,Toiletries,Standard Hotel Washcloth,0.00,19
-Brush,Toiletries,Standard Hairbrush,5.00,20
-Comb,Toiletries,Thin Hair Comb,2.00,3
-Hairspray,Toiletries,Long-Lasting Hairspray,3.00,48
-Hair Gel,Toiletries,Travel-Sized Unscented Hair Gel,3.00,22
-Mirror,Toiletries,Small Bathroom Mirror,15.00,12
-Tissues,Toiletries,1 Box of Kleenex Tissues,0.00,31
-Lotion,Toiletries,Mini Unscented Lotion Bottle,0.00,40
-Moisterizing Lotion,Toiletries,Small Cucumber-Scented Lotion Bottle,6.00,32
-Lip balm- Classic,Toiletries,Class Unscented Lip Balm,0.00,16
-Lip balm- Cherry,Toiletries,Cherry Flavored Lip Balm,4.00,45
-Lip balm- Sunscreen,Toiletries,Classic Lip Balm Enhanced with Sun Protection,5.00,22
-Razor- Standard,Toiletries,Classic 2-Blade Plastic Razor,0.00,37
-Razor- Premium,Toiletries,Quality 4-Blade Durable Razor,6.00,40
-Shaving Cream,Toiletries,Mini Bottle of Basic Shaving Cream,0.00,45
-Shave Gel/Aftershave,Toiletries,"Bottle of Cool, Smooth Shave Gel",6.00,35
-Cologne- Sage,Toiletries,"A refreshing scent that combines top notes of white Sage from New Mexico, accented with crisp Cucumber notes.",45.00,31
-Cologne- Cedarwood,Toiletries,"Notes of Cedar, Cypress, Citrus Peel, and a Vetiver Finish",47.00,46
-Facial cleanser,Toiletries,"Designed to wash away daily grime like makeup, dead skin cells, excess oil, and pollutants.",6.00,35
-Curling Iron,Toiletries,"Durable, Quality Iron Perfect for Curling Hair",60.00,41
-Flat Iron,Toiletries,Flat Iron For Straightening All Hair Types,55.00,20
-Blow dryer,Toiletries,High Quality Blow Dryer with Hot and Cool Settings,52.00,34
-Hair Accessories,Toiletries,"Hair Ties, Clips, Bobby Pins, and HeadBands",3.00,11
-Perfume- Fragrant,Toiletries,"A blend of cumin, lavender, sage, rosemary and many unique plant varieties with a strong scent of herbs and spice",47.00,6
-Perfume- Fruity,Toiletries,"Composed of notes like cherry, pear, and watermelon",50.00,34
-Sewing Kit,Toiletries,"Kit Contains Sewing Needle, Thread (Black, White, and Gray), a Pin Cushion, and a Thimble",25.00,20
-Hangers,Toiletries,10 Hotel Hangers,0.00,9
+Toothbrush,Toiletries,Standard Toothbrush,$0.00,40
+Electric Toothbrush,Toiletries,Premium Electric Toothbrush,$15.00,27
+Toothpaste,Toiletries,Classic Mint-flavored Toothpaste,$0.00,7
+Dental floss,Toiletries,Standard Dental Floss,$0.00,39
+Mouthwash,Toiletries,Non-Alcoholic Mouthwash,$0.00,32
+Contacts Solution,Toiletries,Opti-Free Contact Lense Solution,$5.00,37
+Q-Tips,Toiletries,5 Standard Q-Tips,$0.00,21
+Cotton Balls,Toiletries,7 Cotton Balls,$0.00,2
+Tweezers,Toiletries,"Plastic, Durable Tweezers",$5.00,47
+Nail Clippers,Toiletries,Quality Metal Nail Clippers,$15.00,39
+Deodorant- Spring Breeze,Toiletries,Floral Scented Deodorant For Any Occasion,$10.00,4
+Deodorant- Mountain Hike,Toiletries,Forest Enhanced Deodorant For The Strongest Scents,$10.00,32
+Deodorant- Autumn Wind,Toiletries,Classic Pine and Pumpkin Enfused Scent,$10.00,36
+Shampoo- Standard,Toiletries,Travel Size Cucumber Scented Shampoo,$0.00,6
+Shampoo- Premium,Toiletries,Medium Sized Coconut Breeze Shampoo,$8.00,36
+Conditioner- Standard,Toiletries,Travel Size Cucumber Scented Conditioner,$0.00,43
+Conditioner- Premium,Toiletries,Medium Sized Coconut Foam Conditioner,$8.00,18
+Soap- Standard,Toiletries,Small Unscented Hand Soap,$0.00,38
+Soap- Premium,Toiletries,Quality Soap for Even the Most Sensitive of Hands,$8.00,42
+Body Wash- Standard,Toiletries,Travel Sized Lemon Scented Body Wash,$0.00,4
+Body Wash- Premium,Toiletries,Small Vanilla Butter Body Wash,$8.00,39
+Washcloth,Toiletries,Standard Hotel Washcloth,$0.00,11
+Brush,Toiletries,Standard Hairbrush,$5.00,44
+Comb,Toiletries,Thin Hair Comb,$2.00,16
+Hairspray,Toiletries,Long-Lasting Hairspray,$3.00,10
+Hair Gel,Toiletries,Travel-Sized Unscented Hair Gel,$3.00,20
+Mirror,Toiletries,Small Bathroom Mirror,$15.00,50
+Tissues,Toiletries,1 Box of Kleenex Tissues,$0.00,37
+Lotion,Toiletries,Mini Unscented Lotion Bottle,$0.00,48
+Moisterizing Lotion,Toiletries,Small Cucumber-Scented Lotion Bottle,$6.00,28
+Lip balm- Classic,Toiletries,Class Unscented Lip Balm,$0.00,7
+Lip balm- Cherry,Toiletries,Cherry Flavored Lip Balm,$4.00,22
+Lip balm- Sunscreen,Toiletries,Classic Lip Balm Enhanced with Sun Protection,$5.00,12
+Razor- Standard,Toiletries,Classic 2-Blade Plastic Razor,$0.00,19
+Razor- Premium,Toiletries,Quality 4-Blade Durable Razor,$6.00,35
+Shaving Cream,Toiletries,Mini Bottle of Basic Shaving Cream,$0.00,34
+Shave Gel/Aftershave,Toiletries,"Bottle of Cool, Smooth Shave Gel",$6.00,36
+Cologne- Sage,Toiletries,"A refreshing scent that combines top notes of white Sage from New Mexico, accented with crisp Cucumber notes.",$45.00,6
+Cologne- Cedarwood,Toiletries,"Notes of Cedar, Cypress, Citrus Peel, and a Vetiver Finish",$47.00,13
+Facial cleanser,Toiletries,"Designed to wash away daily grime like makeup, dead skin cells, excess oil, and pollutants.",$6.00,5
+Curling Iron,Toiletries,"Durable, Quality Iron Perfect for Curling Hair",$60.00,42
+Flat Iron,Toiletries,Flat Iron For Straightening All Hair Types,$55.00,36
+Blow dryer,Toiletries,High Quality Blow Dryer with Hot and Cool Settings,$52.00,40
+Hair Accessories,Toiletries,"Hair Ties, Clips, Bobby Pins, and HeadBands",$3.00,22
+Perfume- Fragrant,Toiletries,"A blend of cumin, lavender, sage, rosemary and many unique plant varieties with a strong scent of herbs and spice",$47.00,13
+Perfume- Fruity,Toiletries,"Composed of notes like cherry, pear, and watermelon",$50.00,26
+Sewing Kit,Toiletries,"Kit Contains Sewing Needle, Thread (Black, White, and Gray), a Pin Cushion, and a Thimble",$25.00,42
+Hangers,Toiletries,10 Hotel Hangers,$0.00,22

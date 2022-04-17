@@ -72,7 +72,7 @@ class FoodPage(Screen):
         if(self.request.BuyOut() is True):
             for item in self.row_check:
                 item.append(self.message)
-                self.parent.get_screen('CartPage').cart.append(item[1:])
+                self.parent.get_screen('CartPage').updateCart(item[1:])
             self.up()
 
     def on_check_press(self, instance_table, current_row):

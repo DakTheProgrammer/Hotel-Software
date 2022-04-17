@@ -2,10 +2,11 @@ from kivy.uix.screenmanager import Screen
 from kivy.clock import Clock
 from datetime import date, datetime
 from kivy.factory import Factory
-
+from kivy.app import App
 from Classes.EasySQL import DB
 
 class GuestPage(Screen):
+    username = ''
 
     def getUsername(self, username):
         #Need what user logged into the system to find out their room number
@@ -15,7 +16,7 @@ class GuestPage(Screen):
         #Get whether the guest has checked in already or not
         query2 = f"""SELECT Checked FROM Room WHERE Room = '{self.room}'"""
         self.check = DB.run(query2)[0][0]
-
+        
 
     def on_pre_enter(self):
         self.ids.clock.text = f'[b]{datetime.today().strftime("%I:%M %p")}[/b]'
@@ -64,3 +65,6 @@ class GuestPage(Screen):
             Factory.NoRoomPop().open()
         else:
             self.parent.current = 'GuestRoomServicePage'
+
+    def getRoom(self):
+        return self.room

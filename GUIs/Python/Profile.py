@@ -16,6 +16,8 @@ class ProfilePage(Screen):
         if(self.Info[3] == "Guest"):
             member = DB.run(f"""SELECT Member FROM Guest WHERE Username = '{username}'""")
             self.Info.append(''.join(list(member[0])))  #yes this looks terrible but it works
+
+            self.balance = DB.run(f"""SELECT Balance FROM Guest WHERE Username = '{username}'""")
         else:
             role = DB.run(f"""SELECT Role FROM Employee WHERE Username = '{username}'""")
             self.Info.append(''.join(list(role[0])))
@@ -24,6 +26,7 @@ class ProfilePage(Screen):
         self.setImage()
         self.setName()
         self.setInfo()
+        self.setBalance()
 
     def on_pre_enter(self):
         home = IButton(
@@ -48,3 +51,6 @@ class ProfilePage(Screen):
             self.ids.Info.text =  f"[color=e1c699][b][u]Email:[/u][/b][/color]\n              {self.Info[2]}"+\
                                    f"\n[color=e1c699][b][u]Account:[/u][/b][/color]\n              {self.Info[3]}"+\
                                     f"\n[color=e1c699][b][u]Membership:[/u][/b][/color]\n              {self.Info[-1]} Status"
+
+    def setBalance(self):
+        self.ids.Balance.text = f"[color=e1c699][b][u]Charges:[/u][/b][/color]   ${self.balance[0][0]}"
