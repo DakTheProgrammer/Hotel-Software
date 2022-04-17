@@ -6,6 +6,7 @@ from Classes.EasySQL import DB
 class ProfilePage(Screen):
     #Need the username of the account in order to get their information
     def getUser(self, username):
+        self.user = username
         #gets user information needed to display
         self.Info = DB.run(f"""SELECT First, Last, Email, Type FROM Users
          WHERE Username = '{username}'""")
@@ -16,8 +17,6 @@ class ProfilePage(Screen):
         if(self.Info[3] == "Guest"):
             member = DB.run(f"""SELECT Member FROM Guest WHERE Username = '{username}'""")
             self.Info.append(''.join(list(member[0])))  #yes this looks terrible but it works
-
-            self.balance = DB.run(f"""SELECT Balance FROM Guest WHERE Username = '{username}'""")
         else:
             role = DB.run(f"""SELECT Role FROM Employee WHERE Username = '{username}'""")
             self.Info.append(''.join(list(role[0])))
@@ -26,7 +25,6 @@ class ProfilePage(Screen):
         self.setImage()
         self.setName()
         self.setInfo()
-        self.setBalance()
 
     def on_pre_enter(self):
         home = IButton(
@@ -36,6 +34,9 @@ class ProfilePage(Screen):
             )
         home.bind(on_press = self.Home)
         self.add_widget(home)
+        self.balance = DB.run(f"""SELECT Balance FROM Guest WHERE Username = '{self.user}'""")
+        self.setBalance()
+
         
     def Home(self, widget):
         self.parent.current = "GuestPage"

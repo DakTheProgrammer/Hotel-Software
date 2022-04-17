@@ -92,14 +92,11 @@ def loadBags():
             con.commit()
         
 def loadMenu():
-    query = 'SELECT * FROM Menu'
-    cur.execute(query)
-    con.commit()
+    with open('MockData/InternetItems.csv') as f:
+        items = list(csv.reader(f))
 
-    items = cur.fetchall()
-    
     for row in items:
-        query = f'UPDATE Menu SET (Name, Type, SubType, Description, Price, Amount) = {row[0], row[1], row[2], row[3], f"${row[4]}", row[5]} WHERE Name = "{row[0]}"'
+        query = f'INSERT INTO Menu (Name, Type, SubType, Description, Price, Amount) VALUES{row[0], row[1], row[2], row[3], row[4], row[5]}'
         cur.execute(query)
         con.commit()
 
