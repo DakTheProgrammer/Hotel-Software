@@ -5,7 +5,7 @@ from kivymd.app import MDApp as App
 
 from Classes.EasySQL import DB
 
-class ServicePage(Screen):
+class RoomServicePage(Screen):
     def on_pre_enter(self):
         self.ids.clock.text = datetime.today().strftime("%I:%M %p")
         self.ids.date.text = date.today().strftime("%a., %b %d %Y")

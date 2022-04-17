@@ -21,7 +21,7 @@ from GUIs.Python.AttendantRoom import AttendantRoomPage
 from GUIs.Python.AttChecking import AttendantCheckingPage
 from GUIs.Python.Bellhop import BellhopPage
 from GUIs.Python.Manager import ManagerPage
-from GUIs.Python.RoomService import ServicePage
+from GUIs.Python.RoomService import RoomServicePage
 from GUIs.Python.ManagerInterface import ManagerInterfacePage
 from GUIs.Python.ManagerSignUp import ManagerSignUpPage
 from GUIs.Python.ManagerRoom import ManagerRoomPage

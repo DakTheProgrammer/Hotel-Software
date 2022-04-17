@@ -1,5 +1,5 @@
-<ServicePage>:
-    name: 'ServicePage'                   #name of the page
+<RoomServicePage>:
+    name: 'RoomServicePage'                   #name of the page
 
     canvas:
         Rectangle:                          
@@ -9,47 +9,72 @@
     
     Button:
         id: Orders                                                                               
-        text: 'Orders'                                                                           
-        pos_hint: {'center_x': .25, 'center_y': .725}
-        size_hint: (.4, .3)                                                                     
+        text: ''                                                                           
+        pos_hint: {'center_x': .2, 'center_y': .8}
+        size_hint: (.39, .29)                                                              #allows resize 
+        background_normal: 'images/RoomOrdersB.png' 
         on_press: 
             app.root.current = 'OrdersPage'                                           
 
     Button:
         id: Inventory                                                                               
-        text: 'Inventory'                                                                           
-        pos_hint: {'center_x': .25, 'center_y': .3}
-        size_hint: Orders.size_hint                                                                     
+        text: ''                                                                           
+        pos_hint: {'center_x': .2, 'center_y': .5}
+        size_hint: Orders.size_hint                                                        #allows resize 
+        background_normal: 'images/RoomInventoryB.png'
         on_press: 
             app.root.current = 'InventoryPage'
 
     Button:
         id: Edit                                                                               
-        text: 'Edit Sevices'                                                                           
-        pos_hint: {'center_x': .75, 'center_y': .3}
-        size_hint: Orders.size_hint                                                                
+        text: ''                                                                           
+        pos_hint: {'center_x': .5, 'center_y': .24}
+        size_hint: Orders.size_hint                                                        #allows resize
+        background_normal: 'images/RoomEditB.png'                                                              
         on_press: 
             app.root.current = 'EditServicesPage'
 
+    Button:
+        id: Mail                                                                           #name of button
+        text: ''                                                                           #text in button
+        pos_hint: {'center_x': .825, 'center_y': .24}
+        size_hint: Orders.size_hint                                                        #allows resize 
+        background_normal: 'images/MailB.png' 
+        on_press:
+            app.root.current = 'MailPage' 
+
     Label:
         id: clock
-        text:''                                                            
-        pos_hint: {'center_x': .75, 'center_y': .75}
-        size_hint: Orders.size_hint
-        font_size: 50
+        text:''     
+        markup: True                                                       
+        pos_hint: {'center_x': .7, 'center_y': .7}
+        size_hint: Orders.size_hint    
+        font_size: 70
 
     Label:
         id: date
-        text: ''                                                              
-        pos_hint: {'center_x': .75, 'center_y': .675}
+        text: '' 
+        markup: True                                                             
+        pos_hint: {'center_x': .7, 'center_y': .61}
         size_hint: Orders.size_hint
-        font_size: 25
+        font_size: 50
+
+       
+    Button:
+        id: Profile                                                                        #name of button
+        text: ''                                                                           #text in button
+        pos_hint: {'center_x': .2, 'center_y': .2}
+        size_hint: (.25,.3)
+        background_normal: 'images/profileB.png'
+        on_press:
+            app.root.current = 'ProfilePage'  
 
     Button:
         id: SignOut
-        text: 'Sign Out'
+        text: '[b]Sign Out[/b]'
+        markup: True
         pos_hint: {'center_x': .949, 'center_y': .029}
         size_hint: (.1, .05)
+        background_color: (2,0,0,10)
         on_press: 
             app.root.current = 'LogPage'
-            root.Log()

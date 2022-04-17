@@ -23,12 +23,15 @@ class ProfilePage(Screen):
             role = DB.run(f"""SELECT Status FROM Employee WHERE Username = '{username}'""")
             self.Info.append(role[0][0])
             employee = self.Info[3]
+            self.ids.Picture.size_hint = (.3, .3)
             if(employee == 'Attendant'):
                 self.ids.Picture.source = 'images/AttProfilePic.png'
             elif(employee == "Bellhop"):
                 self.ids.Picture.source = 'images/BellProfilePic.png'
             elif(employee == 'Manager'):
                 self.ids.Picture.source = 'images/ManProfilePic.png'
+            else:
+                self.ids.Picture.source = 'images/ServiceProfilePic.png'
 
             if(self.Info[-1] == 1):
                 self.Info[-1] = 'Active'
@@ -76,4 +79,5 @@ class ProfilePage(Screen):
             self.ids.Balance.text = ''
 
     def Home(self, widget):
+        self.Info[3] = ''.join(self.Info[3].split(' '))
         self.parent.current = f'{self.Info[3]}Page'

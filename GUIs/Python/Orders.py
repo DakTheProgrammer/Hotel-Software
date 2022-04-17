@@ -67,7 +67,7 @@ class OrdersPage(Screen):
         self.remove_widget(self.loading)
 
     def up(self):
-        self.parent.current = 'ServicePage' #this line right here says what is wrong with kivy as a GUI library
+        self.parent.current = 'RoomServicePage' #this line right here says what is wrong with kivy as a GUI library
         self.parent.current = 'OrdersPage'
 
     def complete(self):
