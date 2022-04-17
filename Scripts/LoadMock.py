@@ -104,8 +104,6 @@ def loadMenu():
         con.commit()
 
 def loadMessages():
-    cur.execute("DROP TABLE Messages")
-
     table = """CREATE TABLE Messages(
     Username varchar(255) NOT NULL,
     Message varchar(600) NOT NULL,
