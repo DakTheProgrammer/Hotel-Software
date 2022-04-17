@@ -62,16 +62,8 @@ class FoodPage(Screen):
         Display.show(description[0][0])
         Display.open()
 
-    def requesting(self):
-        self.request = SpecialRequests()
-        self.request.choosePage('Food')
-        self.request.open()
-
     def addCart(self):
-        self.message = self.request.leave()
-        if(self.request.BuyOut() is True):
             for item in self.row_check:
-                item.append(self.message)
                 self.parent.get_screen('CartPage').updateCart(item[1:])
             self.up()
 

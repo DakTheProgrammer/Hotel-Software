@@ -6,6 +6,7 @@ from Classes.EasySQL import DB
 from kivy.uix.image import Image
 import ast
 from kivy.factory import Factory
+from GUIs.Python.SpecialRequestsPop import SpecialRequests
 
 class CartPage(Screen):
     table = None
@@ -34,9 +35,8 @@ class CartPage(Screen):
                 use_pagination = True,
                 rows_num = 7,
                 column_data = [
-                    ("Item", dp(45)),
-                    ("Price", dp(30)),
-                    ("Requests", dp(55))
+                    ("Item", dp(55)),
+                    ("Price", dp(55)),
                 ],
                 row_data = [
 
@@ -55,7 +55,7 @@ class CartPage(Screen):
             if(type(cart[0]) == str):
                 cart = [cart]
 
-            total = ['Total', 0, '']
+            total = ['Total', 0]
             for item in cart:
                 total[1] += float(item[1].strip('$'))
                 self.table.row_data.append(item)
@@ -95,12 +95,25 @@ class CartPage(Screen):
         query = f'UPDATE Guest SET Cart = "{cart}" WHERE Username = "{user[0][0]}"'
         DB.run(query)
 
+    def requesting(self):
+        self.request = SpecialRequests()
+        self.request.open()
+
+    def addRequest(self):
+        self.message = ''
+        if(self.request.BuyOut() is True):
+            self.message = self.request.leave()
+        else:
+            self.message = "None"
+        self.checkout()
+
     def checkout(self):
         user = App.get_running_app().root
         room = user.get_screen("GuestPage").getRoom()
         query = f'SELECT Username FROM Room WHERE Room = "{room}"'
         user = DB.run(query)
         #Remove An Item From the Inventory
+        info = []
         for item in self.table.row_data[1:]:
             query = f'SELECT Amount FROM Menu WHERE Name = "{item[0]}" AND Type != "Internet"'
             amount = DB.run(query)
@@ -108,10 +121,25 @@ class CartPage(Screen):
                 amount = int(amount[0][0]) -1
                 query = f'UPDATE Menu SET Amount = "{amount}" WHERE Name = "{item[0]}"'
                 DB.run(query)
+            info.append(item[0])
 
+        info = ', '.join(info)
+        
+        query = 'SELECT Number FROM Service'
+        orderNum = DB.run(query)
+        if(len(orderNum) < 1 or int(orderNum[-1][-1]) > 999):
+            orderNum = 1
+        else:
+            orderNum = int(orderNum[-1][-1]) + 1
+
+        
+        query = f'INSERT INTO Service (Number, Username, Room, Type, Info) VALUES{orderNum, user[0][0], room, "Service", ":: ".join([info, self.message])}'
+        DB.run(query)
         query = f"UPDATE Guest SET Balance = {self.pay} WHERE Username = '{user[0][0]}'"
         DB.run(query)
+       
         self.emptyCart()
+        #username, room, type, info
 
     def removeSelected(self):
         #User wanted to remove everything through check boxes

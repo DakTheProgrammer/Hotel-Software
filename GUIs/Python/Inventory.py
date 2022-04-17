@@ -23,6 +23,9 @@ class InventoryPage(Screen):
         if self.table == None:
             query = 'SELECT * FROM Inventory'
             info = DB.run(query)
+            query = 'SELECT Name, Amount, Type FROM Menu'
+            info2 = DB.run(query)
+
 
             self.table = MDDataTable(
                 pos_hint = {'center_x': 0.5, 'center_y': 0.575},
@@ -42,6 +45,9 @@ class InventoryPage(Screen):
 
             for items in info:
                 self.table.row_data.append(items)
+            for items in info2:
+                self.table.row_data.append(items)
+
 
             self.add_widget(self.table)
 

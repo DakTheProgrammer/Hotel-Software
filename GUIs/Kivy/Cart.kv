@@ -10,11 +10,11 @@
 
     Button:
         id: Back                                                                              #name of button
-        text: 'Checkout'                                                                           #text in button
+        text: 'Check Out'                                                                           #text in button
         size_hint: (.2, .1)                                                                  #allows resize
         pos_hint: {'center_x': 0.62, 'center_y': 0.1} 
         on_press: 
-            root.checkout()
+            root.requesting()
     Button:
         id: Empty
         text: 'Empty Cart'

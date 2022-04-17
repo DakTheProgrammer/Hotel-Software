@@ -6,9 +6,8 @@
     height: 450
     auto_dismiss: False         #Don't exit box until user presses button
     on_dismiss: 
-        if root.page == 'Food': app.root.get_screen("FoodPage").addCart() 
-        if root.page == 'Toiletries': app.root.get_screen("ToiletriesPage").addCart()
-        if root.page == 'Internet': app.root.get_screen('InternetPage').addCart()
+        app.root.get_screen("CartPage").addRequest() 
+        
 
     BoxLayout:
         orientation: 'vertical'

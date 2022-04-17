@@ -140,6 +140,19 @@ def loadMessages():
         cur.execute(query)
         con.commit()
 
+
+    cur.execute(table)
+
+def loadService():
+    cur.execute("""CREATE TABLE Service(
+    Number varchar(100) NOT NULL,
+    Username varchar(100) NOT NULL,
+    Room smallint(255) NOT NULL,
+    Type varchar(50) NOT NULL,
+    Info varchar(100) NOT NULL,
+    PRIMARY KEY(Number))""")
+
+
 import sys;
 print(sys.version)
 
@@ -150,7 +163,8 @@ print(
 4: Load Rooms
 5: Load Bags
 6: Load Menu
-7: Load Messages''')
+7: Load Messages
+8: Load Service''')
 sel = int(input())
 match sel:
     case 1:
@@ -167,5 +181,7 @@ match sel:
         loadMenu()
     case 7:
         loadMessages()
+    case 8:
+        loadService()
     case _:
         print('you are an idiot')
