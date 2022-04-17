@@ -34,8 +34,13 @@
 #: include GUIs\kivy\Cart.kv
 #: include GUIs\kivy\NoRoomPop.kv
 #: include GUIs\kivy\NoItemsPop.kv
-#: include GUIs\kivy\GuestProfile.kv
+#: include GUIs\kivy\Profile.kv
 #: include GUIs\kivy\ContactEmployee.kv
+#: include GUIs\kivy\DescriptionPop.kv
+#: include GUIs\kivy\SpecialRequestsPop.kv
+#: include GUIs\kivy\MessageSentPop.kv
+#: include GUIs\kivy\DisplayPop.kv
+#: include GUIs\kivy\Mail.kv
 
 WindowManager:
     #Screen Numbers:
@@ -65,7 +70,7 @@ WindowManager:
     ManagerPage:
 
     #8
-    ServicePage:
+    RoomServicePage:
 
     #9
     ManagerInterfacePage:
@@ -122,4 +127,7 @@ WindowManager:
     AttendantCheckingPage:
     
     #27
-    GuestProfilePage:
+    ProfilePage:
+
+    #28
+    MailPage:

@@ -21,7 +21,7 @@ from GUIs.Python.AttendantRoom import AttendantRoomPage
 from GUIs.Python.AttChecking import AttendantCheckingPage
 from GUIs.Python.Bellhop import BellhopPage
 from GUIs.Python.Manager import ManagerPage
-from GUIs.Python.RoomService import ServicePage
+from GUIs.Python.RoomService import RoomServicePage
 from GUIs.Python.ManagerInterface import ManagerInterfacePage
 from GUIs.Python.ManagerSignUp import ManagerSignUpPage
 from GUIs.Python.ManagerRoom import ManagerRoomPage
@@ -39,7 +39,13 @@ from GUIs.Python.Food import FoodPage
 from GUIs.Python.Toiletries import ToiletriesPage
 from GUIs.Python.Internet import InternetPage
 from GUIs.Python.Cart import CartPage
-from GUIs.Python.GuestProfile import GuestProfilePage
+from GUIs.Python.Profile import ProfilePage
+from GUIs.Python.ImageButton import IButton
+from GUIs.Python.DescriptionPop import Description
+from GUIs.Python.SpecialRequestsPop import SpecialRequests
+from GUIs.Python.ContactEmployee import ContactEmployee
+from GUIs.Python.DisplayPop import Display
+from GUIs.Python.Mail import MailPage
 
 
 

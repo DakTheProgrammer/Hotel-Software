@@ -5,15 +5,22 @@
         Rectangle:                          #essentialy is the background
             pos: self.pos                   #placed on screen
             size: self.size                 #size of screen
-            #source: 'images/bellhopbg.jpg'
+            source: 'images/roomservicebg.jpg'
 
     Button:
         id: Back                                                                              #name of button
         text: 'Back'
         size_hint: (.4, .05)                                                                 #allows resize
-        pos_hint: {'center_x': 0.5, 'center_y': 0.0775}                                                                           #text in button
+        pos_hint: {'center_x': 0.75, 'center_y': 0.0775}                                                                           #text in button
         on_press: 
-            app.root.current = 'ServicePage'
+            app.root.current = 'RoomServicePage'
+
+    Button:
+        id: Display                                                                           #name of button
+        text: 'Display Info'
+        size_hint: (.4, .05)                                                                 #allows resize
+        pos_hint: {'center_x': 0.25, 'center_y': 0.0775}                                                                           #text in button
+        on_press: root.display()
 
     Button:
         id: Complete                                                                              #name of button

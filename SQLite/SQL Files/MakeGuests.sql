@@ -3,5 +3,6 @@ CREATE TABLE Guest(
     First varchar(50) NOT NULL,
     Last varchar(50) NOT NULL,
     Member varchar(50) NOT NULL,
+    Cart varchar(255) NOT NULL,
     PRIMARY KEY (Username)
 )

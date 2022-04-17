@@ -1,0 +1,31 @@
+<Description>:
+    id: Description
+    title: ""                   #No need for a title but it has to be here
+    size_hint : (None,None)
+    width : 750                 #Make the confirmation smaller than screen
+    height: 450
+    auto_dismiss: False         #Don't exit box until user presses button
+
+    
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            Label:
+                id: Message
+                text: ''
+                font_size: 20
+                halign: 'center'
+                text_size: self.size
+
+        ScatterLayout:
+            rows: 1
+            row_force_default: True
+            row_default_height: '46dp'
+            col_force_default: True
+            col_default_width: '150dp'
+            
+            Button:
+                text: 'OK'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                size_hint: .3, .3
+                on_release: root.dismiss()

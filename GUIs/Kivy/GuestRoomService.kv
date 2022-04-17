@@ -5,44 +5,48 @@
         Rectangle:                          #essentialy is the background
             pos: self.pos                   #placed on screen
             size: self.size                 #size of screen
-            source: 'images/guestbg.jpg'    #background image of screen
+            source: 'images/Guest2.png'    #background image of screen
 
     Button:
         id: Food
-        text: 'Food'
-        pos_hint: {'center_x': .2, 'center_y': .55}
-        size_hint: (.25, .25)
+        text: ''
+        pos_hint: {'center_x': .2, 'center_y': .7}
+        size_hint: (.3, .3)
+        background_normal: 'images/FoodB.png'
         on_press: 
             app.root.current = 'FoodPage'
 
     Button:
         id: Toiletries
-        text: 'Toiletries'
-        pos_hint: {'center_x': .5, 'center_y': .55}
-        size_hint: (.25, .25)
+        text: ''
+        pos_hint: {'center_x': .5, 'center_y': .7}
+        size_hint: (.3, .3)
+        background_normal: 'images/ToiletriesB.png'
         on_press: 
             app.root.current = 'ToiletriesPage'
 
     Button:
         id: Internet
-        text: 'Internet Packages'
-        pos_hint: {'center_x': .8, 'center_y': .55}
-        size_hint: (.25, .25)
+        text: ''
+        pos_hint: {'center_x': .35, 'center_y': .4}
+        size_hint: (.3, .3)
+        background_normal: 'images/InternetB.png'
         on_press: 
             app.root.current = 'InternetPage'
 
 
     Button:
         id: Cart
-        text: 'Cart'
-        pos_hint: {'center_x': .88, 'center_y': .25}
-        size_hint: (.15, .075)
+        text: '[b]Cart[b]'
+        markup: True
+        font_size: 25
+        pos_hint: {'center_x': .35, 'center_y': .15}
+        size_hint: (.2, .085)
+        background_color: '#000000'
         on_press: root.getCart()
 
-    Button:
-        id: Exit
-        text: 'X'
-        pos_hint: {'center_x': .949, 'center_y': .959}
-        size_hint: (.05, .05)
-        on_press: 
-            app.root.current = 'GuestPage'
+    Image:
+        id: CartPic
+        source: 'images/Cart.png'
+        pos_hint: {'center_x': .265, 'center_y': .15}
+        size_hint: (.13,.13)

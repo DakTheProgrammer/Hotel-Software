@@ -5,7 +5,7 @@
         Rectangle:                          #essentialy is the background
             pos: self.pos                   #placed on screen
             size: self.size                 #size of screen
-            source: 'images/guestbg.jpg'    #background image of screen
+            source: 'images/HotelHoursbg.png'    #background image of screen
 
     Label:
         id: Breakfast
@@ -66,10 +66,4 @@
         size_hint: (.25, .25)              
         font_size: 30
 
-    Button:
-        id: Exit
-        text: 'X'
-        pos_hint: {'center_x': .949, 'center_y': .959}
-        size_hint: (.05, .05)
-        on_press: 
-            app.root.current = 'GuestPage'
+    

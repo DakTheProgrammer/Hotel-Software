@@ -5,7 +5,7 @@
         Rectangle:                          #essentialy is the background
             pos: self.pos                   #placed on screen
             size: self.size                 #size of screen
-            #source: 'images/bellhopbg.jpg'
+            source: 'images/roomservicebg.jpg'
 
     Button:
         id: Back                                                                              #name of button
@@ -13,7 +13,7 @@
         size_hint: (.4, .1)                                                                 #allows resize
         pos_hint: {'center_x': 0.75, 'center_y': 0.1}  
         on_press: 
-            app.root.current = 'ServicePage'
+            app.root.current = 'RoomServicePage'
 
     Button:
         id: Update                                                                              #name of button

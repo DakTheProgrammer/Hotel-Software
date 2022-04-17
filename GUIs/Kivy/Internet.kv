@@ -7,14 +7,20 @@
             size: self.size                 #size of screen
             source: 'images/guestbg.jpg'
 
-
     Button:
         id: Back                                                                              #name of button
         text: 'Add to Cart'                                                                           #text in button
         size_hint: (.2, .1)                                                                  #allows resize
         pos_hint: {'center_x': 0.75, 'center_y': 0.1} 
         on_press: 
-            app.root.current = 'GuestPage'
+            root.addCart()
+    Button:
+        id: Description                                                                             #name of button
+        text: 'Show Description'                                                                           #text in button
+        size_hint: (.2, .1)                                                                  #allows resize
+        pos_hint: {'center_x': 0.5, 'center_y': 0.1} 
+        on_press: root.showDescription()
+
 
     Button:
         id: Back                                                                              #name of button

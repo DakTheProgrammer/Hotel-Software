@@ -10,7 +10,7 @@
     Button:
         id: Checking                                                                               #name of button
         text: ''           
-        background_normal: root.checkType()                                                              #text in button
+        background_normal: ''                                                              #text in button
         pos_hint: {'center_x': .2, 'center_y': .8}
         size_hint: (.39, .29) 
         on_press:
@@ -63,7 +63,7 @@
     Label:
         id: room
         markup: True
-        text: ' [b]Room:[/b] [font=Consolai]Not Checked In[/font]'    
+        text: ''    
         pos_hint: {'center_x': .66, 'center_y': .575}
         size_hint: Checking.size_hint
         font_size: 40
@@ -73,9 +73,9 @@
         text: ''                                                                           #text in button
         pos_hint: {'center_x': .2, 'center_y': .2}
         size_hint: (.25,.3)
-        background_normal: 'images/profileButton.png'
+        background_normal: 'images/profileB.png'
         on_press:
-            app.root.current = 'GuestProfilePage'                                                                 #allows resize
+            app.root.current = 'ProfilePage'                                                                 #allows resize
 
     Button:
         id: SignOut

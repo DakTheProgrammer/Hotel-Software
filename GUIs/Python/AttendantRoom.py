@@ -45,6 +45,8 @@ class AttendantRoomPage(Screen):
 
         self.remove_widget(self.loading)
         
+        self.remove_widget(self.loading)
+
     def up(self):
         self.parent.current = 'AttendantPage' #this line right here says what is wrong with kivy as a GUI library
         self.parent.current = 'AttendantRoomPage'

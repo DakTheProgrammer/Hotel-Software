@@ -1,0 +1,37 @@
+<MailPage>:
+    name: 'MailPage'                   #name of the page
+
+    canvas:
+        Rectangle:                          #essentialy is the background
+            pos: self.pos                   #placed on screen
+            size: self.size                 #size of screen
+            source: 'images/managerbg.jpg'
+
+    Button:
+        id: Back                                                                              #name of button
+        text: 'Back'
+        size_hint: (.4, .05)                                                                 #allows resize
+        pos_hint: {'center_x': 0.75, 'center_y': 0.0775}                                                                           #text in button
+        on_press: root.home()
+    Button:
+        id: Display                                                                           #name of button
+        text: 'Display Info'
+        size_hint: (.4, .05)                                                                 #allows resize
+        pos_hint: {'center_x': 0.25, 'center_y': 0.0775}                                                                           #text in button
+        on_press: root.display()
+
+    Button:
+        id: Complete                                                                              #name of button
+        text: 'Mark as Read'                                                                           #text in button
+        size_hint: (.4, .05)                                                                 #allows resize
+        pos_hint: {'center_x': 0.25, 'center_y': 0.15} 
+        on_press: 
+            root.complete()
+
+    Button:
+        id: Update                                                                              #name of button
+        text: 'Update'                                                                           #text in button
+        pos_hint: {'center_x': 0.75, 'center_y': 0.15}
+		size_hint: (.4, .05) 
+        on_press: 
+            root.up()

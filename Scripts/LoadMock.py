@@ -1,8 +1,9 @@
 import sqlite3
 import json
+import csv
 import random
 
-con = sqlite3.connect('..\SQLite\Databases\Hotel.sqlite')
+con = sqlite3.connect('SQLite\Databases\Hotel.sqlite')
 cur = con.cursor()
 
 def loadUsers():
@@ -41,7 +42,7 @@ def loadGuests():
 
     for user in users:
         if user[5] == 'Guest':
-            query = f'INSERT INTO Guest (Username, First, Last, Member) VALUES{user[0], user[2], user[3], types[random.randint(0,4)]}'
+            query = f'UPDATE Guest SET (Username, First, Last, Member, Cart, Balance) = {user[0], user[2], user[3], types[random.randint(0,4)], "Empty", 0} WHERE Username = "{user[0]}"'
             cur.execute(query)
             con.commit()
 
@@ -90,16 +91,81 @@ def loadBags():
             cur.execute(query)
             con.commit()
         
-        
+def loadMenu():
+    with open('MockData/InternetItems.csv') as f:
+        items = list(csv.reader(f))
+
+    for row in items:
+        query = f'INSERT INTO Menu (Name, Type, SubType, Description, Price, Amount) VALUES{row[0], row[1], row[2], row[3], row[4], row[5]}'
+        cur.execute(query)
+        con.commit()
+
+def loadMessages():
+    table = """CREATE TABLE Messages(
+    Username varchar(255) NOT NULL,
+    Message varchar(600) NOT NULL,
+    PRIMARY KEY(Username)
+    );"""
+
+    cur.execute(table)
+
+    query = 'SELECT Username FROM Employee'
+    cur.execute(query)
+    con.commit()
+
+    users = cur.fetchall()
+    for row in users:
+        query = f'Insert INTO Messages (Username, Message) VALUES {row[0], "None"}'
+        cur.execute(query)
+        con.commit()
+
+def loadMessages():
+    cur.execute("DROP TABLE Messages")
+
+    table = """CREATE TABLE Messages(
+    Username varchar(255) NOT NULL,
+    Message varchar(600) NOT NULL,
+    PRIMARY KEY(Username)
+    );"""
+
+    cur.execute(table)
+
+    query = 'SELECT Username FROM Employee'
+    cur.execute(query)
+    con.commit()
+
+    users = cur.fetchall()
+    for row in users:
+        query = f'Insert INTO Messages (Username, Message) VALUES {row[0], "None"}'
+        cur.execute(query)
+        con.commit()
+
+
+    cur.execute(table)
+
+def loadService():
+    cur.execute("""CREATE TABLE Service(
+    Number varchar(100) NOT NULL,
+    Username varchar(100) NOT NULL,
+    Room smallint(255) NOT NULL,
+    Type varchar(50) NOT NULL,
+    Info varchar(100) NOT NULL,
+    PRIMARY KEY(Number))""")
+
+
+import sys;
+print(sys.version)
 
 print(
 '''1: Load Users
 2: Load Employee
 3: Load Guests
 4: Load Rooms
-5: Load Bags''')
+5: Load Bags
+6: Load Menu
+7: Load Messages
+8: Load Service''')
 sel = int(input())
-
 match sel:
     case 1:
         loadUsers()
@@ -111,5 +177,11 @@ match sel:
         loadRooms()
     case 5:
         loadBags()
+    case 6:
+        loadMenu()
+    case 7:
+        loadMessages()
+    case 8:
+        loadService()
     case _:
         print('you are an idiot')
