@@ -18,17 +18,24 @@
 
     TextInput:
         id: Usr                                                 #Name of textbox
-        text: 'Username'                                        #text in textbox
+        hint_text: 'Username'                                        #text in textbox
         pos: Pword.pos[0], Pword.pos[1] + (Pword.size[1] * 2)   #postion relative ot password box NOTE: the + portion of the y is used as an offset to space objects
         size_hint: (None, None)                                 #allows resize
         size: Pword.size                                        #same size as password box
+        multiline: False
+        on_text_validate: Log.trigger_action(0)
+        write_tab: False
 
     TextInput:
         id: Pword                                                                               #name of text box
-        text: 'Password'                                                                        #text in textbox
+        hint_text: 'Password'                                                                        #text in textbox
         pos: (root.size[0] / 2) - (self.size[0] / 2), ((root.size[1] / 2) - (self.size[1] / 2)) #root is the main screen. This centers the password field.
         size_hint: (None, None)                                                                 #used in dynamic scaling
         size: 200, 30                                                                           #200x30 size
+        password: True
+        multiline: False
+        on_text_validate: Log.trigger_action(0)
+        write_tab: False
 
     Button:
         id: Log                                         #name of button

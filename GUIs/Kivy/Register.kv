@@ -8,7 +8,7 @@
             source: 'images/registerbg.jpg'
     Label:
         id: Error#name of label
-        text:'Username already exists'#text of label
+        text:'Username already exists or empty field'#text of label
         size_hint: (None, None)#allows resize
         pos: Fir.pos[0], Fir.pos[1] + (Fir.size[1] * 2)#places above first name box
         size: Pword.size#same size as password box
@@ -18,38 +18,54 @@
 
     TextInput:
         id: Fir                                         #Name of textbox
-        text: 'First'                                   #text in textbox
+        hint_text: 'First'                                   #text in textbox
         pos: Las.pos[0], Las.pos[1] + (Las.size[1] * 2) #postion relative to last name box
         size_hint: (None, None)                         #allows resize
         size: Pword.size                                #same size as password box
+        multiline: False
+        on_text_validate: New.trigger_action(0)
+        write_tab: False
 
     TextInput:
         id: Las                                         #see above for like comments
-        text: 'Last'
+        hint_text: 'Last'
         pos: Ema.pos[0], Ema.pos[1] + (Ema.size[1] * 2) 
         size_hint: (None, None)
         size: Pword.size
+        multiline: False
+        on_text_validate: New.trigger_action(0)
+        write_tab: False
 
     TextInput:
         id: Ema                                         #see above for like comments
-        text: 'Email'
+        hint_text: 'Email'
         pos: Usr.pos[0], Usr.pos[1] + (Usr.size[1] * 2) 
         size_hint: (None, None)
         size: Pword.size
+        multiline: False
+        on_text_validate: New.trigger_action(0)
+        write_tab: False
 
     TextInput:
         id: Usr                                         #see above for like comments
-        text: 'Username'                                        
+        hint_text: 'Username'                                        
         pos: Pword.pos[0], Pword.pos[1] + (Pword.size[1] * 2)   
         size_hint: (None, None)
         size: Pword.size
+        multiline: False
+        on_text_validate: New.trigger_action(0)
+        write_tab: False
 
     TextInput:
         id: Pword                                       #see above for like comments
-        text: 'Password' 
+        hint_text: 'Password' 
         pos: (root.size[0] / 2) - (self.size[0] / 2), ((root.size[1] / 3) - (self.size[1] / 3)) 
         size_hint: (None, None) 
         size: 200, 30                                   #200x30 size
+        multiline: False
+        on_text_validate: New.trigger_action(0)
+        password: True
+        write_tab: False
 
     Button:
         id: New                                         #see above for like comments

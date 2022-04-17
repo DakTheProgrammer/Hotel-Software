@@ -68,7 +68,7 @@ class LoginPage(Screen):
             return False
 
     def on_leave(self):
-        self.ids.Usr.text = 'Username'
-        self.ids.Pword.text = 'Password'
+        self.ids.Usr.text = ''
+        self.ids.Pword.text = ''
         self.ids.Error.visable = False
         

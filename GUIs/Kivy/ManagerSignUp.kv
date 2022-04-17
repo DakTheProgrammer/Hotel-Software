@@ -9,7 +9,7 @@
 
     Label:
         id: mess
-        text: 'Username already exists or invalid job'
+        text: 'Username already exists, invalid job, or empty field'
         size_hint: (.3, .05)
         pos_hint: {'center_x': 0.5, 'center_y': 0.95}
         visable: False
@@ -17,33 +17,49 @@
 
     TextInput:
         id: Fir                                         #Name of textbox
-        text: 'First'                                   #text in textbox
+        hint_text: 'First'                                   #text in textbox
         size_hint: (.3, .05)
         pos_hint: {'center_x': 0.5, 'center_y': 0.85}
+        multiline: False
+        on_text_validate: New.trigger_action(0)
+        write_tab: False
 
     TextInput:
         id: Las                                         #see above for like comments
-        text: 'Last' 
+        hint_text: 'Last' 
         size_hint: Fir.size_hint
         pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+        multiline: False
+        on_text_validate: New.trigger_action(0)
+        write_tab: False
 
     TextInput:
         id: Ema                                         #see above for like comments
-        text: 'Email'
+        hint_text: 'Email'
         size_hint: Fir.size_hint
         pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+        multiline: False
+        on_text_validate: New.trigger_action(0)
+        write_tab: False
 
     TextInput:
         id: Usr                                         #see above for like comments
-        text: 'Username'                                           
+        hint_text: 'Username'                                           
         size_hint: Fir.size_hint
         pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        multiline: False
+        on_text_validate: New.trigger_action(0)
+        write_tab: False
 
     TextInput:
         id: Pword                                       #see above for like comments
-        text: 'Password' 
+        hint_text: 'Password' 
         size_hint: Fir.size_hint 
         pos_hint: {'center_x': 0.5, 'center_y': 0.45}
+        multiline: False
+        on_text_validate: New.trigger_action(0)
+        password: True
+        write_tab: False
 
     Spinner:
         id: spin

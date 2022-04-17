@@ -33,6 +33,9 @@ class RegisterPage(Screen):
             The email of a user
         """
         try:
+            if usr == '' or pas == '' or fir == '' or las == '' or email == '':
+                raise
+
             typ = 'Guest'
             DB.insert('Users', [usr, pas, fir, las, email, typ])
             return True
@@ -41,9 +44,9 @@ class RegisterPage(Screen):
             return False
 
     def on_leave(self):
-        self.ids.Fir.text = 'First'
-        self.ids.Las.text = 'Last'
-        self.ids.Ema.text = 'Email'
-        self.ids.Usr.text = 'Username'
-        self.ids.Pword.text = 'Password'
+        self.ids.Fir.text = ''
+        self.ids.Las.text = ''
+        self.ids.Ema.text = ''
+        self.ids.Usr.text = ''
+        self.ids.Pword.text = ''
         self.ids.Error.visable = 'False'
