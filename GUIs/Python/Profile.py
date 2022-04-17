@@ -25,6 +25,8 @@ class ProfilePage(Screen):
             employee = self.Info[3]
             if(employee == 'Attendant'):
                 self.ids.Picture.source = 'images/AttProfilePic.png'
+            elif(employee == "Bellhop"):
+                self.ids.Picture.source = 'images/BellProfilePic.png'
             if(self.Info[-1] == 1):
                 self.Info[-1] = 'Active'
             else:
