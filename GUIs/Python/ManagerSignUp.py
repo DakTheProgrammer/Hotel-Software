@@ -8,6 +8,7 @@ class ManagerSignUpPage(Screen):
         
         try:
             DB.insert('Users', [usr, pas, fir, las, ema, job])
+            DB.insert('Employee', [usr, fir, las, job, False])
             return True
         except:
             #returns false if user already exists

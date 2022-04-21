@@ -38,6 +38,14 @@ class RegisterPage(Screen):
 
             typ = 'Guest'
             DB.insert('Users', [usr, pas, fir, las, email, typ])
+            DB.insert('Guest', [usr, fir, las, 'Silver', 'Empty', 0])
+            
+            query = 'SELECT Room FROM Room WHERE Username = "Empty"'
+            res = DB.run(query)
+            openRoom = res[0][0]
+            query = f'UPDATE Room SET Username = "{usr}", First = "{fir}", Last = "{las}", Status = "Unknown", Occupancy = "Unknown" WHERE ROOM = {openRoom}'
+            DB.run(query)
+            DB.insert('Bags', [usr, fir, las, openRoom, 'Not Taken', 'Front Door', True])
             return True
         except:
             #returns false if user already exists
