@@ -77,6 +77,7 @@ class RootApp(App):
     """
     def build(self):
         self.icon = 'images/icon.png'
+        self.title = 'Hotel Works'
         return Builder.load_file('GUIs\Kivy\Root.kv')
 
     def on_stop(self):
